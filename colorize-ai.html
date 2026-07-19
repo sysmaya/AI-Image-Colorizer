@@ -1,0 +1,3374 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorize Photo Online Free</title>
+    <link rel="icon" type="image/x-icon" href="https://online-tools.muisca.co/favicon.ico">
+    <meta name="description" content="Colorize old photos instantly with AI. Colorize black and white photos online for free with AI. Colorize black-and-white photos online in seconds" />
+    <meta name="msvalidate.01" content="2F8A19ED44997DEE4682C62B17B308F2" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/geedmo/yamm@4.0.0/dist/yamm.min.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS - Online Tools" href="https://feeds.feedburner.com/muisca/online-tools">
+    <!--OGG-->
+    <link rel='canonical' href='https://online-tools.muisca.co/en/tools/generators/colorize-black-white-photos' />
+	<link rel='alternate' hreflang='es' href='https://online-tools.muisca.co/tools/generadores/colorize-fotos-blanco-negro' />
+	<link rel='alternate' hreflang='en' href='https://online-tools.muisca.co/en/tools/generators/colorize-black-white-photos' />
+    <style>
+        .logo { text-align: center; margin: 0; }
+
+        .ad-banner {
+            background-color: #e9ecef;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .accordion-custom .card-header { background-color: #f8f9fa; }
+        .tool-card { margin-bottom: 10px; }
+		
+		.row h5 { margin-bottom: 2px; }
+		.list-unstyled li {	margin-bottom: 5px;	}
+		.list-unstyled li a {
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+		}
+		.list-unstyled li a span {	margin-right: 8px; }
+		.lsTools{padding:0.5rem !important;}
+		.card-header{padding: .5rem 1.25rem;}
+		.card-header button{font-size:1.25rem;}
+		.arrow { transition: transform 0.3s ease; display: inline-block; }
+		button[aria-expanded="true"] .arrow { transform: rotate(90deg); }
+		.infoTool{
+			background-image: url('https://online-tools.muisca.co/backTools-color.png');
+			background-position: center; background-size:cover; background-repeat:no-repeat }
+		.infoToolInfo{
+			backdrop-filter: blur(6px) saturate(102%); 
+			-webkit-backdrop-filter: blur(6px) saturate(102%); 
+			background-color: rgba(255, 255, 255, 0.75); 
+			border-radius: 12px; border: 1px solid rgba(209, 213, 219, 0.3); }
+		.lead{font-size: 1.0rem;}
+    </style>
+</head>
+<body>
+    <!-- Menú Superior https://github.com/geedmo/yamm?tab=readme-ov-file -->
+	<nav class="yamm navbar navbar-expand-lg navbar-dark bg-dark px-5">
+        <!--div class="container" -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" aria-controls="navbar-collapse-grid" aria-expanded="true" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="navbar-collapse collapse show" id="navbar-collapse-grid" style="">
+            <ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="https://online-tools.muisca.co/en/">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<!--Nesting Menu -->
+                
+            </ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Lang</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="https://online-tools.muisca.co/tools/generadores/colorize-fotos-blanco-negro">Español</a>
+						<a class="dropdown-item" href="https://online-tools.muisca.co/en/tools/generators/colorize-black-white-photos">English</a>
+					</div>
+				</li>
+			</ul>
+          </div>
+		  <!--/div -->
+        </nav>
+
+       
+	<div class="container-fluid py-5 mb-4 d-flex justify-content-center infoTool">
+	<div class="infoToolInfo p-5 mb-4 lc-block col-xxl-7 col-lg-8 col-12">
+		<div class="lc-block">
+			<h1 class="fw-bolder display-4 text-center">AI Image Colorizer</h1>
+		</div>
+		<div class="lc-block col-md-12">
+			<div class="row">
+				<div class="col-md-4"><img alt="Generador de Crucigramas Online" class="img-fluid" src="https://online-tools.muisca.co/images/logos/colorizer-ai.webp"></div>
+				<div class="col-md-8">
+					<p class="lead">
+					Our free tool uses advanced artificial intelligence to automatically colorize your old black-and-white photos, 
+                    with no registration or complicated installations required.
+                    <br>Simply upload your image and let deOldify AI do the heavy lifting. 
+                    Restore colors lost to time with a single click, preserving the essence and authenticity of every captured moment.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+<style>
+	body {
+		font-family: 'Inter', sans-serif;
+		/*background-color: #1a1d29;
+		color: #e2e8f0;*/
+	}
+	
+	.bg-gradient-primary {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	}
+	
+	.card-custom {
+		background: rgba(255, 255, 255, 0.05);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+	
+	.upload-area {
+		border: 2px dashed #6c757d;
+		transition: all 0.3s ease;
+		cursor: pointer;
+	}
+	
+	.upload-area:hover {
+		border-color: #667eea;
+		background: rgba(102, 126, 234, 0.1);
+	}
+	
+	.upload-area.dragover {
+		border-color: #764ba2;
+		background: rgba(118, 75, 162, 0.1);
+	}
+	
+	.slider-container {
+		position: relative;
+		overflow: hidden;
+		background-color: #343a40;
+	}
+	
+	.slider-handle {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 4px;
+		background: white;
+		cursor: ew-resize;
+		z-index: 10;
+		box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	}
+	
+	.slider-button {
+		position: absolute;
+		top: 50%;
+		left: -12px;
+		transform: translateY(-50%);
+		width: 24px;
+		height: 24px;
+		background: white;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+	}
+	
+	#loadingOverlay {
+		/*position: fixed;*/
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.9);
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		z-index: 9999;
+		color: white;
+	}
+	
+	.loadingSpinner {
+		border: 8px solid rgba(255, 255, 255, 0.3);
+		border-radius: 50%;
+		border-top: 8px solid #ffffff;
+		width: 60px;
+		height: 60px;
+		animation: spin 1s linear infinite;
+		display: inline-block;
+	}
+	
+	.loadingText {
+		margin-top: 20px;
+		font-size: 18px;
+		font-weight: 500;
+	}
+	
+	@keyframes spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}
+	
+	.btn-gradient {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		border: none;
+		color: white;
+		transition: all 0.3s ease;
+	}
+	
+	.btn-gradient:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+		color: white;
+	}
+	
+	.btn-gradient:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		transform: none;
+	}
+	
+	canvas {
+		max-width: 100%;
+		height: auto;
+	}
+	
+	.step-icon {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 15px;
+		font-weight: bold;
+		font-size: 1.2rem;
+	}
+</style>
+<style>     
+    .task-card { cursor: pointer; transition: all 0.2s; } 
+    .task-card:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(0,0,0,0.15); } 
+    .task-card.active { border: 2px solid #007bff; background-color: #e9f2ff; } 
+    .extra-select { display: none; }
+	.fondo{background-color: #f3f3f3; color: black;}
+</style>
+
+
+
+
+
+<main class="container py-5">
+	<!-- Upload Section -->
+	 <div id="cargandoModelo" class="badge badge-warning mb-4" style="font-size:1.5rem">Cargando Modelo..... espere</div>
+	<section id="uploadSection" class="mb-5 fondo">
+		<div class="card card-custom rounded-lg">
+			<div class="card-body p-5">
+				<div id="dropZone" class="upload-area rounded p-5 text-center">
+					<input type="file" id="fileInput" accept="image/*" class="d-none">
+					<svg class="d-block mx-auto mb-4 text-secondary" width="64" height="64" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+					</svg>
+					<h5 class="mb-2">Drag an image here or click to select</h5>
+					<p class="text-muted small mb-0">Supports JPG, PNG, WEBP (max. 10MB)</p>
+				</div>
+				<div class="text-center mt-3">
+					<button type="button" class="btn btn-primary" onclick="processImageFromElement()">
+						<img id="imageDemo" src="https://online-tools.muisca.co/images/tiger.png" alt="Icono" style="width: 53px;height: 36px;margin-right: 8px;vertical-align: middle;">
+						Test with example image
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Processing Section -->
+	<section id="processingSection" class="d-none text-center mb-5 fondo">
+		<div id="loadingOverlay" class="text-center py-3">
+			<div class="loadingSpinner"></div>
+			<div class="loadingText" id="loadingText">Processing image...</div>
+		</div>
+	</section>
+
+	<!-- Result Section -->
+	<section id="resultSection" class="d-none mb-5 fondo">
+		<div class="card card-custom rounded-lg">
+			<div class="card-body p-4">
+				<div class="d-flex justify-content-between align-items-center mb-4">
+					<h2 class="h4 font-weight-bold mb-0">Result</h2>
+					<div>
+						<button id="downloadBtn" class="btn btn-gradient px-4 mr-2">
+							Download Image
+						</button>
+						<button id="resetBtn" class="btn btn-gradient px-4">
+							New Image
+						</button>
+					</div>
+				</div>
+
+				<!-- Comparison Slider -->
+				<div class="slider-container rounded position-relative" style="height: 500px;">
+					<canvas id="originalCanvasPre" class="position-absolute w-100 h-100" style="object-fit: contain;"></canvas>
+					<canvas id="colorizedCanvas" class="position-absolute w-100 h-100" style="object-fit: contain; clip-path: inset(0 50% 0 0);"></canvas>
+					
+					<div id="sliderHandle" class="slider-handle" style="left: 50%;">
+						<div class="slider-button">
+							<svg class="text-dark" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
+							</svg>
+						</div>
+					</div>
+					
+					<span class="position-absolute top-0 left-0 bg-dark text-white px-3 py-1 rounded small m-2" style="background: rgba(0,0,0,0.5);">Original</span>
+					<span class="position-absolute top-0 right-0 bg-dark text-white px-3 py-1 rounded small m-2" style="background: rgba(0,0,0,0.5);">Colorizado</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Info Section -->
+	<section class="card card-custom rounded-lg mb-5 fondo">
+		<div class="card-body p-4">
+			<h2 class="h4 font-weight-bold mb-4">¿Cómo funciona?</h2>
+			<div class="row">
+				<div class="col-md-4 text-center mb-4 mb-md-0">
+					<div class="step-icon bg-gradient-primary text-white">1</div>
+					<h5 class="font-weight-semibold mb-2">Upload your image</h5>
+					<p class="text-muted small mb-0">Select a black-and-white photo to process</p>
+				</div>
+				<div class="col-md-4 text-center mb-4 mb-md-0">
+					<div class="step-icon bg-gradient-primary text-white">2</div>
+					<h5 class="font-weight-semibold mb-2">AI Processing</h5>
+					<p class="text-muted small mb-0">deOldify IA analiza y colorea automáticamente</p>
+				</div>
+				<div class="col-md-4 text-center">
+					<div class="step-icon bg-gradient-primary text-white">3</div>
+					<h5 class="font-weight-semibold mb-2">Download Result</h5>
+					<p class="text-muted small mb-0">Get your colorized image in high quality</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<canvas id="originalCanvas" class="d-none"></canvas>
+</main>
+
+
+
+<!-- JS -->
+<script>
+	let originalImage = null;
+	let colorizedImageData = null;
+	let isProcessing = false;
+	let sliderPosition = 50;
+
+	// DOM elements
+	const dropZone = document.getElementById('dropZone');
+	const fileInput = document.getElementById('fileInput');
+	const uploadSection = document.getElementById('uploadSection');
+	const processingSection = document.getElementById('processingSection');
+	const resultSection = document.getElementById('resultSection');
+	const progressBar = document.getElementById('progressBar');
+	const progressText = document.getElementById('progressText');
+	const originalCanvas = document.getElementById('originalCanvas');
+	const colorizedCanvas = document.getElementById('colorizedCanvas');
+	const sliderHandle = document.getElementById('sliderHandle');
+	const downloadBtn = document.getElementById('downloadBtn');
+	const resetBtn = document.getElementById('resetBtn');
+
+	// Event listeners
+	dropZone.addEventListener('click', () => fileInput.click());
+	dropZone.addEventListener('dragover', handleDragOver);
+	dropZone.addEventListener('dragleave', handleDragLeave);
+	dropZone.addEventListener('drop', handleDrop);
+	fileInput.addEventListener('change', handleFileSelect);
+	downloadBtn.addEventListener('click', downloadImage);
+	resetBtn.addEventListener('click', resetApp);
+
+	// Slider functionality
+	let isDragging = false;
+	const sliderContainer = document.querySelector('.slider-container');
+
+	sliderHandle.addEventListener('mousedown', startDrag);
+	document.addEventListener('mousemove', drag);
+	document.addEventListener('mouseup', stopDrag);
+	sliderContainer.addEventListener('touchstart', handleTouchStart);
+	document.addEventListener('touchmove', handleTouchMove);
+	document.addEventListener('touchend', stopDrag);
+
+	function startDrag(e) {
+		isDragging = true;
+		e.preventDefault();
+	}
+
+	function drag(e) {
+		if (!isDragging) return;
+		
+		const rect = sliderContainer.getBoundingClientRect();
+		const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+		sliderPosition = (x / rect.width) * 100;
+		
+		updateSlider();
+	}
+
+	function stopDrag() {
+		isDragging = false;
+	}
+
+	function handleTouchStart(e) {
+		if (e.target === sliderHandle || sliderHandle.contains(e.target)) {
+			isDragging = true;
+			e.preventDefault();
+		}
+	}
+
+	function handleTouchMove(e) {
+		if (!isDragging) return;
+		
+		const rect = sliderContainer.getBoundingClientRect();
+		const touch = e.touches[0];
+		const x = Math.max(0, Math.min(touch.clientX - rect.left, rect.width));
+		sliderPosition = (x / rect.width) * 100;
+		
+		updateSlider();
+		e.preventDefault();
+	}
+
+	function updateSlider() {
+		sliderHandle.style.left = sliderPosition + '%';
+		colorizedCanvas.style.clipPath = `inset(0 ${100 - sliderPosition}% 0 0)`;
+	}
+
+	// File handling
+	function handleDragOver(e) {
+		e.preventDefault();
+		dropZone.classList.add('dragover');
+	}
+
+	function handleDragLeave(e) {
+		e.preventDefault();
+		dropZone.classList.remove('dragover');
+	}
+
+	function handleDrop(e) {
+		e.preventDefault();
+		dropZone.classList.remove('dragover');
+		
+		const files = e.dataTransfer.files;
+		if (files.length > 0) {
+			processFile(files[0]);
+		}
+	}
+
+	function handleFileSelect(e) {
+		const files = e.target.files;
+		if (files.length > 0) {
+			processFile(files[0]);
+		}
+	}
+
+	function processFile(file) {
+		if (!file.type.startsWith('image/')) {
+			alert('Please select a valid image file.');
+			return;
+		}
+
+		if (file.size > 10 * 1024 * 1024) {
+			alert('The file is too large. Maximum 10MB.');
+			return;
+		}
+
+		uploadSection.classList.add('d-none');
+		processingSection.classList.remove('d-none');
+		document.getElementById('loadingOverlay').style.display = 'flex';
+
+		const reader = new FileReader();
+		reader.onload = function(e) {
+			const img = new Image();
+			img.onload = function() {
+				originalImage = img;
+				startProcessing();
+			};
+			img.src = e.target.result;
+		};
+		reader.readAsDataURL(file);
+	}
+
+	function startProcessing() {
+		
+		isProcessing = true;
+		
+		
+		runMyModel(originalImage);
+
+		isProcessing = false;
+		processingSection.classList.add('d-none');
+		resultSection.classList.remove('d-none');
+		
+		document.getElementById('loadingOverlay').style.display = 'none';
+		displayImages();
+
+		
+	}
+
+
+	function displayImages() {
+		const maxWidth = 800;
+		const maxHeight = 500;
+		
+		let width = originalImage.width;
+		let height = originalImage.height;
+		
+		// Scale down if necessary
+		if (width > maxWidth || height > maxHeight) {
+			const scale = Math.min(maxWidth / width, maxHeight / height);
+			width *= scale;
+			height *= scale;
+		}
+		
+		// Set canvas dimensions
+		originalCanvas.width = width;
+		originalCanvas.height = height;
+		colorizedCanvas.width = width;
+		colorizedCanvas.height = height;
+		
+		// Draw original image
+		const ctx = originalCanvas.getContext('2d');
+		ctx.drawImage(originalImage, 0, 0, width, height);
+	}
+
+	function downloadImage() {
+		const link = document.createElement('a');
+		link.download = 'imagen-colorizada.png';
+		link.href = colorizedCanvas.toDataURL();
+		link.click();
+	}
+
+	function resetApp() {          
+		originalImage = null;
+		colorizedImageData = null;
+		sliderPosition = 50;
+		
+		// Reset UI
+		uploadSection.classList.remove('d-none');
+		processingSection.classList.add('d-none');
+		resultSection.classList.add('d-none');
+		
+		// Reset file input
+		fileInput.value = '';
+		
+		// Reset slider position
+		updateSlider();
+	}
+
+	// Initialize slider position
+	updateSlider();
+
+</script>
+
+<script>
+	let myOrtSession;
+
+	const preprocess = (input_imageData, width, height) => {
+		const floatArr = new Float32Array(width * height * 3);
+		const floatArr2 = new Float32Array(width * height * 3);
+
+		let j = 0;
+		for (let i = 1; i < input_imageData.data.length + 1; i++) {
+			if (i % 4 !== 0) {
+			floatArr[j] = input_imageData.data[i - 1]; // red color
+			j += 1;
+			}
+		}
+
+		let k = 0;
+		for (let i = 0; i < floatArr.length; i += 3) {
+			floatArr2[k] = floatArr[i]; // red color
+			k += 1;
+		}
+		let l = k;
+		for (let i = 1; i < floatArr.length; i += 3) {
+			floatArr2[l] = floatArr[i]; // green color
+			l += 1;
+		}
+		let m = l;
+		for (let i = 2; i < floatArr.length; i += 3) {
+			floatArr2[m] = floatArr[i]; // blue color
+			m += 1;
+		}
+		return floatArr2;
+	};
+
+	const postprocess = (tensor) => {
+		const channels = tensor.dims[1];
+		const height = tensor.dims[2];
+		const width = tensor.dims[3];
+
+		const imageData = new ImageData(width, height);
+		const data = imageData.data;
+
+		const tensorData = new Float32Array(tensor.cpuData);
+
+		for (let h = 0; h < height; h++) {
+			for (let w = 0; w < width; w++) {
+			const rgb = [];
+			for (let c = 0; c < channels; c++) {
+				const tensorIndex = (c * height + h) * width + w;
+				const dataIndex = (h * width + w) * 4 + c;
+				const value = tensorData[tensorIndex];
+				rgb.push(Math.round(value));
+			}
+			data[(h * width + w) * 4] = rgb[0];
+			data[(h * width + w) * 4 + 1] = rgb[1];
+			data[(h * width + w) * 4 + 2] = rgb[2];
+			data[(h * width + w) * 4 + 3] = 255; // alpha channel
+			}
+		}
+		return imageData;
+	};
+
+	const loadModelxxx = async () => {
+		if (!myOrtSession) {
+			myOrtSession = await ort.InferenceSession.create("https://raw.githubusercontent.com/linmingren/openmodels/main/models/deoldify/deoldify.quant.onnx");
+		}
+	};
+
+	const loadModel = async () => {
+		const CACHE_NAME = 'onnx-models-v1';
+		const MODEL_URL = "https://raw.githubusercontent.com/linmingren/openmodels/main/models/deoldify/deoldify.quant.onnx";
+		const loadingEl = document.getElementById('cargandoModelo');
+		
+		if (!myOrtSession) {
+			try {
+				// Mostrar y actualizar texto
+				loadingEl.style.display = '';
+				loadingEl.textContent = 'Downloading model...';
+				
+				const cache = await caches.open(CACHE_NAME);
+				let response = await cache.match(MODEL_URL);
+				
+				if (!response) {
+					loadingEl.textContent = 'First time: downloading model...';
+					response = await fetch(MODEL_URL);
+					
+					if (!response.ok) {
+						throw new Error(`Error: ${response.status}`);
+					}
+					
+					await cache.put(MODEL_URL, response.clone());
+					loadingEl.textContent = 'Model stored in cache...';
+				} else {
+					loadingEl.textContent = 'Loading from cache...';
+				}
+				
+				const modelBuffer = await response.arrayBuffer();
+				loadingEl.textContent = 'Initializing model...';
+				
+				myOrtSession = await ort.InferenceSession.create(modelBuffer);
+				loadingEl.textContent = 'Model ready!';
+				
+				// Ocultar después de un breve delay para que el usuario vea el mensaje
+				setTimeout(() => {
+					loadingEl.style.display = 'none';
+				}, 1000);
+				
+			} catch (error) {
+				loadingEl.textContent = 'Error downloading model';
+				loadingEl.classList.remove('badge-warning');
+				loadingEl.classList.add('badge-danger');
+			}
+		}
+	};
+
+	const runMyModel = async (image) => {
+		await loadModel();
+
+		const size = 256;
+		let canvas = document.getElementById("originalCanvas");
+		
+		canvas.width = size;
+		canvas.height = size;
+		let ctx = canvas.getContext("2d");
+		ctx.drawImage(image, 0, 0, size, size);
+		const input_img = ctx.getImageData(0, 0, size, size);
+		const test = preprocess(input_img, size, size);
+		const input = new ort.Tensor(new Float32Array(test), [1, 3, size, size]);
+
+		const result = await myOrtSession.run({
+		"input": input,
+		});
+		const output = result["out"];
+
+		// Create a new canvas to render the processed image data
+		const processedCanvas = document.createElement("canvas");
+		const processedCtx = processedCanvas.getContext("2d");
+		processedCanvas.width = size;
+		processedCanvas.height = size;
+		const imgdata = postprocess(output);
+		processedCtx.putImageData(imgdata, 0, 0);
+
+		let canvas2 = document.getElementById("originalCanvasPre");
+		canvas2.width = image.width;
+		canvas2.height = image.height;
+		const ctx2 = canvas2.getContext("2d");
+		ctx2.drawImage(image, 0, 0, image.width, image.height);
+
+		// Draw the processed canvas onto the original canvas
+		let canvas3 = document.getElementById("colorizedCanvas");
+		canvas3.width = image.width;
+		canvas3.height = image.height;
+		const ctx3 = canvas3.getContext("2d");
+		ctx3.drawImage(processedCanvas, 0, 0, image.width, image.height);
+
+		hideLoading();  // Hide the loading overlay
+	};
+
+	const showLoading = () => {
+		document.getElementById('loadingOverlay').style.display = 'flex';
+	};
+
+	const hideLoading = () => {
+		document.getElementById('loadingOverlay').style.display = 'none';
+	};
+
+	function processImageFromElement() {
+		const imageElement = document.getElementById('imageDemo');
+		
+		if (!imageElement) {
+			console.error('No se encontró el elemento #imageDemo');
+			return;
+		}
+
+		// Obtener la fuente de la imagen
+		const imgSrc = imageElement.src || imageElement.getAttribute('src');
+		
+		if (!imgSrc) {
+			console.error('El elemento #imageDemo no tiene una imagen cargada');
+			return;
+		}
+
+		uploadSection.classList.add('hidden');
+		processingSection.classList.remove('hidden');
+		document.getElementById('loadingOverlay').style.display = 'block';
+
+		uploadSection.classList.add('d-none');
+		processingSection.classList.remove('d-none');
+		document.getElementById('loadingOverlay').style.display = 'block';
+
+
+		const img = new Image();
+		img.onload = function() {
+			originalImage = img;
+			startProcessing();
+		};
+		img.onerror = function() {
+			console.error('Error al cargar la imagen');
+			document.getElementById('loadingOverlay').style.display = 'none';
+			uploadSection.classList.remove('hidden');
+			processingSection.classList.add('hidden');
+		};
+		img.src = imgSrc;
+	}
+
+	// Load the model when the page loads
+	window.onload = loadModel;
+</script><script type='application/ld+json'>[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Colorize Photo Online Free",
+        "url": "https://online-tools.muisca.co/en/tools/generators/colorize-black-white-photos",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "description": "Colorize old photos instantly with AI. Colorize black and white photos online for free with AI. Colorize black-and-white photos online in seconds",
+        "image": "https://online-tools.muisca.co/images/online-tools.jpg",
+        "creator": {
+            "@type": "Organization",
+            "name": "Online Tools - Muisca",
+            "url": "https://online-tools.muisca.co"
+        }
+    },
+    {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is the tool really free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is completely free. There are no hidden costs, subscriptions, or payments of any kind."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to create an account or register?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, registration is not required. You can use the tool immediately without providing personal data or creating accounts."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is there advertising on the page?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, the tool is ad-free. We offer a clean experience without distractions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where can I see the source code?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The code is open source and published on GitHub. You can review it, contribute, or use it as a base for your own projects."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are my photos sent to a server?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, all processing is done locally in your browser. Your images never leave your device."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What technology does it use to colorize images?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It uses neural networks run via ONNX Runtime directly in your browser, ensuring privacy and speed."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it safe to upload my personal photos?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. Since processing is 100% local, your photos are never transmitted or stored on any external server."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work offline?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Once the page is loaded, image processing works locally. However, you need internet initially to load the tool and AI models."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What image formats are supported?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It supports common formats like JPG, PNG, and WEBP, with a recommended maximum size of 10MB per file."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use this tool commercially?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, being open source published on GitHub, you can use it freely respecting the license indicated in the repository."
+                }
+            }
+        ]
+    }
+]</script><div class="container my-4">
+    <div class="row align-items-center p-3 border" style="background:#f8f9fa; border-radius:12px;">
+        <div class="col-md-7">
+        <a href="https://kardex-tauro.muisca.co/" target="_blank" style="text-decoration:none; color:inherit;">
+            <h3 class="mb-2" style="font-weight:600;">
+                Inventory Kardex Tauro
+            </h3>
+            <p class="mb-0" style="font-size:16px; line-height:1.4;">
+                Kardex Tauro® Inventory Software is designed to efficiently manage your warehouse or storeroom, and it is quick and easy to learn.
+                <br>Kardex Tauro is free for non-commercial use.
+            </p>
+            <style>
+                .btn-ms-download{display: inline-flex; margin-top:24px;  align-items: center; background-color: #000000; color: #ffffff; padding: 6px 12px; border-radius: 8px; text-decoration: none; border: 1px solid #333; transition: all 0.3s ease; width: fit-content}
+                .btn-icon{ width: 32px; height: auto; margin-right: 15px;}
+                .btn-text{ display: flex; flex-direction: column; line-height: 1.2; text-align: left;}
+                .text-top{ font-size: 12px; text-transform: uppercase; opacity: 0.8;}
+                .text-bottom{ font-size: 18px; font-weight: 700;}
+            </style>
+            <div class="btn-ms-download">
+                <img src="https://kardex-tauro.muisca.co/images/logoMicrosoft.png" alt="Microsoft" class="btn-icon">
+                <div class="btn-text">
+                    <span class="text-top">Download from</span>
+                    <span class="text-bottom">Microsoft Store</span>
+                </div>
+            </div>
+
+            </a>
+        </div> 
+        <div class="col-md-5 text-center">
+            <a href="https://kardex-tauro.muisca.co/" target="_blank" style="text-decoration:none; color:inherit;">
+            <img src="https://kardex-tauro.muisca.co/images/inventario800.png" 
+                    alt="Pantalla del sistema de inventarios" 
+                    class="img-fluid" 
+                    style="max-height:220px; object-fit:contain;"></a>
+        </div>    
+    </div>
+</div>
+
+    <div class="container py-4 mt-5"><h3 class="text-center mb-4">Other online tools that may interest you</h3><div class="row">
+		<div class="col-md-4 mb-4">
+			<div class="card h-100 shadow-sm">
+				<div class="card-body text-center">
+					<svg height="86px" width="86px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 503.607 503.607" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g transform="translate(1)"> <g> <path style="fill:#FFE100;" d="M477.426,258.518v39.449c0,64.63-104.918,117.508-235.016,117.508h25.18 c130.098,0,235.016-52.879,235.016-117.508v-92.328C502.607,224.944,493.374,242.57,477.426,258.518"></path> <path style="fill:#FFE100;" d="M267.59,88.131c-4.197,0-8.393,0-12.59,0c124.223,3.357,222.426,54.557,222.426,117.508 S379.223,319.79,255,323.148c4.197,0,8.393,0,12.59,0c130.098,0,235.016-52.879,235.016-117.508S397.689,88.131,267.59,88.131"></path> </g> <path style="fill:#FFA800;" d="M99.721,415.475H36.77c-16.787,0-29.377-13.429-29.377-29.377v-32.734 c0-16.787,13.43-29.377,29.377-29.377h62.951V415.475z"></path> <path style="fill:#FFE100;" d="M74.541,369.311c0-11.751-9.233-20.984-20.984-20.984s-20.984,9.233-20.984,20.984 c0,11.751,9.233,20.984,20.984,20.984S74.541,381.062,74.541,369.311"></path> <path style="fill:#FDCC00;" d="M275.984,323.148c-130.098,0-235.016-52.879-235.016-117.508v92.328 c0,8.393,1.679,16.787,5.875,25.18H275.984z"></path> <path style="fill:#FFFFFF;" d="M40.967,258.518c-15.948-15.948-25.18-33.574-25.18-52.879v92.328c0,8.393,1.679,16.787,5.875,25.18 h25.18c-4.197-8.393-5.875-16.787-5.875-25.18V258.518z"></path> <path style="fill:#FFE100;" d="M225.623,323.148H99.721v92.328h125.902c130.098,0,235.016-52.879,235.016-117.508v-92.328 C460.639,270.269,355.721,323.148,225.623,323.148"></path> <path style="fill:#FFA800;" d="M460.639,258.518v39.449c0,64.63-104.918,117.508-235.016,117.508h25.18 c130.098,0,235.016-52.879,235.016-117.508v-92.328C485.82,224.944,476.587,242.57,460.639,258.518"></path> <g> <path style="fill:#FFE100;" d="M485.82,205.639c0-64.63-104.918-117.508-235.016-117.508S15.787,141.01,15.787,205.639 s104.918,117.508,235.016,117.508S485.82,270.269,485.82,205.639"></path> <path style="fill:#FFE100;" d="M460.639,205.639c0-64.63-104.918-117.508-235.016-117.508S15.787,141.01,15.787,205.639 s79.738,117.508,209.836,117.508S460.639,270.269,460.639,205.639"></path> </g> <path style="fill:#FFA800;" d="M250.803,88.131c-4.197,0-8.393,0-12.59,0c124.223,3.357,222.426,54.557,222.426,117.508 S362.436,319.79,238.213,323.148c4.197,0,8.393,0,12.59,0c130.098,0,235.016-52.879,235.016-117.508S380.902,88.131,250.803,88.131 "></path> <path style="fill:#FFFFFF;" d="M250.803,323.148c4.197,0,8.393,0,12.59,0C139.17,319.79,40.967,268.59,40.967,205.639 S139.17,91.489,263.393,88.131c-4.197,0-8.393,0-12.59,0c-174.584,0-235.016,46.164-235.016,117.508 C15.787,270.269,120.705,323.148,250.803,323.148"></path> <path style="fill:#FDCC00;" d="M359.918,205.639c0-36.931-60.433-67.148-134.295-67.148c-52.039,0-109.115,30.216-109.115,67.148 s57.075,67.148,109.115,67.148C299.485,272.787,359.918,242.57,359.918,205.639"></path> <path style="fill:#FFA800;" d="M250.803,138.492c-4.197,0-8.393,0-12.59,0c67.987,3.357,121.705,31.895,121.705,67.148 s-53.718,63.79-121.705,67.148c4.197,0,8.393,0,12.59,0c73.862,0,134.295-30.216,134.295-67.148S324.666,138.492,250.803,138.492"></path> <path style="fill:#FFE100;" d="M292.77,205.639c0-18.466-30.216-33.574-67.148-33.574c7.554,0-41.967,15.108-41.967,33.574 c0,18.466,49.521,33.574,41.967,33.574C262.554,239.213,292.77,224.105,292.77,205.639"></path> <path style="fill:#FFA800;" d="M250.803,172.066c-4.197,0-8.393,0-12.59,0.839c31.056,3.357,54.557,16.787,54.557,32.734 s-23.502,30.216-54.557,32.734c4.197,0,8.393,0.839,12.59,0.839c36.931,0,67.148-15.108,67.148-33.574 S287.734,172.066,250.803,172.066"></path> <path d="M250.803,331.541c-136.813,0-243.41-55.397-243.41-125.902c0-36.931,28.538-69.666,80.577-94.007 c4.197-1.679,9.233,0,10.911,4.197c1.679,4.197,0,9.233-4.197,10.911C50.2,147.725,24.18,176.262,24.18,205.639 c0,58.754,104.079,109.115,226.623,109.115s226.623-50.361,226.623-109.115S373.348,96.525,250.803,96.525 c-34.413,0-67.987,3.357-99.043,10.911c-4.197,0.839-9.233-1.679-10.072-5.875c-0.839-4.197,1.679-9.233,5.875-10.072 c32.734-7.554,67.148-11.751,103.239-11.751c136.813,0,243.41,55.397,243.41,125.902S387.616,331.541,250.803,331.541z"></path> <path d="M128.259,105.757c0-5.036-3.357-8.393-8.393-8.393c-5.036,0-8.393,3.357-8.393,8.393s3.357,8.393,8.393,8.393 C124.902,114.151,128.259,109.954,128.259,105.757"></path> <path d="M250.803,281.18c-79.738,0-142.689-33.574-142.689-75.541s62.951-75.541,142.689-75.541s142.689,33.574,142.689,75.541 S330.541,281.18,250.803,281.18z M250.803,146.885c-67.987,0-125.902,26.859-125.902,58.754s57.915,58.754,125.902,58.754 s125.902-26.859,125.902-58.754S318.79,146.885,250.803,146.885z"></path> <path d="M250.803,247.607c-42.807,0-75.541-17.626-75.541-41.967s32.734-41.967,75.541-41.967s75.541,17.626,75.541,41.967 S293.61,247.607,250.803,247.607z M250.803,180.459c-33.574,0-58.754,13.43-58.754,25.18c0,11.751,25.18,25.18,58.754,25.18 s58.754-13.43,58.754-25.18C309.557,193.889,284.377,180.459,250.803,180.459z"></path> <path d="M250.803,423.869H91.328V314.754h159.475c122.544,0,226.623-50.361,226.623-109.115h16.787v92.328 C494.213,368.472,387.616,423.869,250.803,423.869z M108.115,407.082h142.689c122.544,0,226.623-50.361,226.623-109.115v-45.325 c-35.252,46.164-122.544,78.898-226.623,78.898H108.115V407.082z"></path> <path d="M250.803,331.541H15.787l-2.518-5.036c-4.197-9.233-5.875-19.305-5.875-28.538v-92.328H24.18 c0,58.754,104.079,109.115,226.623,109.115V331.541z M26.698,314.754H127.42c-47.003-14.269-83.095-36.092-103.239-62.111v45.325 C24.18,303.843,25.02,308.879,26.698,314.754z"></path> <path d="M108.115,423.869H36.77C15.787,423.869-1,407.082-1,386.098v-32.734c0-21.823,16.787-38.61,37.77-38.61h71.344V423.869z M36.77,331.541c-11.751,0-20.984,9.233-20.984,20.984v32.734c0,12.59,9.233,21.823,20.984,21.823h54.557v-75.541H36.77z"></path> <path d="M53.557,398.689c-15.948,0-29.377-13.43-29.377-29.377c0-15.948,13.43-29.377,29.377-29.377s29.377,13.429,29.377,29.377 C82.934,385.259,69.505,398.689,53.557,398.689z M53.557,356.721c-6.715,0-12.59,5.875-12.59,12.59s5.875,12.59,12.59,12.59 s12.59-5.875,12.59-12.59S60.272,356.721,53.557,356.721z"></path> <path d="M141.689,423.869c-5.036,0-8.393-3.357-8.393-8.393v-25.18c0-5.036,3.357-8.393,8.393-8.393 c5.036,0,8.393,3.357,8.393,8.393v25.18C150.082,420.511,145.885,423.869,141.689,423.869z"></path> <path d="M183.656,423.869c-5.036,0-8.393-3.357-8.393-8.393v-25.18c0-5.036,3.357-8.393,8.393-8.393s8.393,3.357,8.393,8.393v25.18 C192.049,420.511,187.852,423.869,183.656,423.869z"></path> <path d="M225.623,423.869c-5.036,0-8.393-3.357-8.393-8.393v-25.18c0-5.036,3.357-8.393,8.393-8.393s8.393,3.357,8.393,8.393v25.18 C234.016,420.511,229.82,423.869,225.623,423.869z"></path> <path d="M267.59,423.869c-5.036,0-8.393-3.357-8.393-8.393v-25.18c0-5.036,3.357-8.393,8.393-8.393 c5.036,0,8.393,3.357,8.393,8.393v25.18C275.984,420.511,271.787,423.869,267.59,423.869z"></path> <path d="M309.557,420.511c-5.036,0-8.393-3.357-8.393-8.393v-21.823c0-5.036,3.357-8.393,8.393-8.393 c5.036,0,8.393,3.357,8.393,8.393v21.823C317.951,416.315,313.754,420.511,309.557,420.511z"></path> <path d="M351.525,412.957c-5.036,0-8.393-3.357-8.393-8.393v-22.662c0-5.036,3.357-8.393,8.393-8.393s8.393,3.357,8.393,8.393 v22.662C359.918,408.761,355.721,412.957,351.525,412.957z"></path> <path d="M393.492,399.528c-5.036,0-8.393-3.357-8.393-8.393v-26.02c0-5.036,3.357-8.393,8.393-8.393 c5.036,0,8.393,3.357,8.393,8.393v26.02C401.885,396.17,397.689,399.528,393.492,399.528z"></path> <path d="M435.459,379.384c-5.036,0-8.393-3.357-8.393-8.393v-22.662c0-5.036,3.357-8.393,8.393-8.393 c5.036,0,8.393,3.357,8.393,8.393v22.662C443.852,375.187,439.656,379.384,435.459,379.384z"></path> <path d="M469.033,350.007c-4.197,0-8.393-3.357-8.393-8.393v-18.466c0-5.036,3.357-8.393,8.393-8.393l0,0 c4.197,0,8.393,3.357,8.393,8.393v18.466C477.426,345.81,474.069,350.007,469.033,350.007L469.033,350.007z"></path> </g> </g></svg> 
+					<h5 class="card-title">Online Length Unit Converter</h5>
+					<p class="card-text small text-muted">Convert between different length units such as Meters, Yards, Leagues, etc.</p>
+					<a href="https://online-tools.muisca.co/en/tools/converters/length" class="btn btn-primary btn-sm">Probar</a>
+				</div>
+			</div>
+		</div><script type='application/ld+json'>[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Online Length Unit Converter",
+        "url": "https://online-tools.muisca.co/en/tools/converters/length",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "description": "Convert between different length units such as Meters, Yards, Leagues, etc.",
+        "image": "https://online-tools.muisca.co/images/online-tools.jpg",
+        "creator": {
+            "@type": "Organization",
+            "name": "Online Tools - Muisca",
+            "url": "https://online-tools.muisca.co"
+        }
+    },
+    {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is the Online Length Converter free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our tool is completely free and requires no registration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to register to use it?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, you can use the tool immediately without registering."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are my data or conversions stored?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, all conversions are performed in your browser; we do not store any data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it on a mobile phone or tablet?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it works perfectly on any mobile device, tablet, or computer."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which length units can I convert?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can convert meters, kilometers, centimeters, millimeters, micrometers, nanometers, inches, feet, yards, miles, nautical miles, astronomical units, light-years, parsecs, leagues, fathoms, cubits, palms, and varas."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I perform a unit conversion?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Select the source unit, enter the value you want to convert, then choose the target unit to get the result instantly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the conversion fast?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, all conversions are performed in seconds without delay."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the tool accurate?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the calculations are precise and designed to provide reliable results even for astronomical or scientific measurements."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can it help me with school assignments or engineering work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is ideal for students, engineers, researchers, and anyone needing precise conversions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it convert historical or uncommon units?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, in addition to modern units, it can convert leagues, fathoms, cubits, palms, and varas."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it convert astronomical units?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can convert astronomical units (au), light-years (ly), and parsecs (pc)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work offline?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, you need an internet connection to access the tool, but all calculations are performed on the client side."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my information secure?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, since calculations are done in your browser, your information never leaves your device."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I perform multiple conversions consecutively?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can perform as many conversions as you like without limits."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it compatible with any browser?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it works on Chrome, Firefox, Edge, Safari, and modern mobile browsers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What advantages does it have over other online converters?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It converts far more units than most competitors and provides instant, accurate, and free results."
+                }
+            }
+        ]
+    }
+]</script>
+		<div class="col-md-4 mb-4">
+			<div class="card h-100 shadow-sm">
+				<div class="card-body text-center">
+					<svg width="86px" height="86px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--emojione" preserveAspectRatio="xMidYMid meet" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M49.6 23.6C58.4 8.5 40.3-1.3 17.3 9.2C3.2 15.7-6.6 35.7 13 52.9c13.9 12.2 49 5.3 49-8.7c0-15.5-21.7-4.8-12.4-20.6m4.9 24.6c-2.8 2.4-7.2 2.4-10 0s-2.8-4.5 0-6.9c2.8-2.4 7.2-2.4 10 0s2.7 4.5 0 6.9" fill="#f6c799"></path><path d="M33.2 45.1c-3.1-2.4-8-2.4-11.1 0c-3.1 2.4-3.1 6.2 0 8.6s8 2.4 11.1 0c3-2.4 3-6.3 0-8.6" fill="#2caece"></path><path d="M19.6 33.6c-3.4-1.6-8-.6-10.4 2.3c-2.4 2.9-1.6 6.5 1.8 8.1c3.4 1.6 8 .6 10.4-2.3c2.4-2.9 1.6-6.5-1.8-8.1" fill="#fdf516"></path><path d="M17 20.6c-2.9-1.6-7.2-.9-9.4 1.6c-2.3 2.5-1.7 5.8 1.2 7.3c2.9 1.6 7.2.9 9.4-1.6s1.7-5.7-1.2-7.3" fill="#f55"></path><path d="M28.4 10.8c-2.8-1.6-6.9-1-9.1 1.4s-1.8 5.5 1.1 7.1c2.8 1.6 6.9 1 9.1-1.4s1.7-5.6-1.1-7.1" fill="#83bf4f"></path><path d="M44.7 9.7c-2.2-1.8-5.9-2.2-8.5-1c-2.5 1.2-2.8 3.7-.6 5.5c2.2 1.8 5.9 2.2 8.5 1c2.5-1.3 2.7-3.7.6-5.5" fill="#9156b7"></path><path d="M40 42.1c-1.9 2.1-11.5 4-11.5 4s3.8-3.5 5.5-9.2c.8-2.7 4.7-2.7 6.4-1.2c1.7 1.4 1.5 4.3-.4 6.4" fill="#947151"></path><path d="M58.7 12.3c1-.1 2.9 1.6 3 2.5C62 19.1 44 34.5 44 34.5L41 32s13.3-19.4 17.7-19.7" fill="#666"></path><path fill="#ccc" d="M38.4 34.9l3 2.5l2.6-2.9l-3-2.5z"></path></g></svg> 
+					<h5 class="card-title">Online Color Palette Generator</h5>
+					<p class="card-text small text-muted">Create color palettes and customize your combinations by choosing the base color, the number of shades and the style that inspires you the most.</p>
+					<a href="https://online-tools.muisca.co/en/tools/generators/color-palette" class="btn btn-primary btn-sm">Probar</a>
+				</div>
+			</div>
+		</div><script type='application/ld+json'>[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Online Color Palette Generator",
+        "url": "https://online-tools.muisca.co/en/tools/generators/color-palette",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "description": "Create color palettes and customize your combinations by choosing the base color, the number of shades and the style that inspires you the most.",
+        "image": "https://online-tools.muisca.co/images/online-tools.jpg",
+        "creator": {
+            "@type": "Organization",
+            "name": "Online Tools - Muisca",
+            "url": "https://online-tools.muisca.co"
+        }
+    },
+    {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is the Online Color Palette Generator free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our tool is completely free and does not require registration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to install any software to use it?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, it works directly in your browser without any installations or plugins."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it from a mobile or tablet?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is fully compatible with mobile devices, tablets, and computers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does the palette generator work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Select a base color and the tool automatically generates customized color combinations in different styles."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What palette styles can I generate?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can create complementary, analogous, triadic, tetradic, and monochromatic palettes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I adjust the number of colors in the palette?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can choose how many colors you want in your palette to fit your project."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I save or download my palettes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can copy HEX or RGB color codes or download images of the palette for your projects."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for designers and artists?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is ideal for graphic designers, web designers, illustrators, digital artists, and anyone working with colors."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it for creative inspiration?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is perfect for exploring color combinations, finding inspiration, and experimenting with new palettes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the tool fast?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it generates palettes in seconds without delays."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work in any modern browser?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with Chrome, Firefox, Edge, Safari, and modern mobile browsers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my information safe?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, since all processing happens in your browser, your base color and palettes are never stored on a server."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I generate multiple palettes in a row?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can create as many palettes as you want without limit."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for branding and marketing projects?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it helps you choose coherent and attractive palettes for brands, campaigns, and presentations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for web design?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can use the generated palettes for web interfaces, apps, and digital designs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I combine different palette styles?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can experiment by mixing complementary, analogous, or triadic styles according to your creativity."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I share my palettes with others?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can copy the color codes or download the palette to share with colleagues or clients."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it compatible with design software?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can use the color codes in Photoshop, Illustrator, Figma, Canva, and any other design software."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it for educational projects or learning about color?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is perfect for design or art students, or anyone wanting to learn about color theory."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What advantages does it have over other palette generators?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It turns a single base color into professional, fast, and visually appealing combinations, with multiple styles and adjustments, all free and without registration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for hobbyists who want to experiment with colors?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, anyone who wants to play with unique color combinations can do so easily and enjoyably."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I get palettes for printing?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the colors are shown with codes and can be downloaded or captured for printing."
+                }
+            }
+        ]
+    }
+]</script>
+		<div class="col-md-4 mb-4">
+			<div class="card h-100 shadow-sm">
+				<div class="card-body text-center">
+					<svg width="86px" height="86px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><ellipse fill="#F4900C" cx="33.5" cy="14.5" rx="2.5" ry="3.5"></ellipse><ellipse fill="#F4900C" cx="2.5" cy="14.5" rx="2.5" ry="3.5"></ellipse><path fill="#FFAC33" d="M34 19a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v9zM7 19a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v9z"></path><path fill="#FFCC4D" d="M28 5c0 2.761-4.478 4-10 4C12.477 9 8 7.761 8 5s4.477-5 10-5c5.522 0 10 2.239 10 5z"></path><path fill="#F4900C" d="M25 4.083C25 5.694 21.865 7 18 7c-3.866 0-7-1.306-7-2.917c0-1.611 3.134-2.917 7-2.917c3.865 0 7 1.306 7 2.917z"></path><path fill="#269" d="M30 5.5C30 6.881 28.881 7 27.5 7h-19C7.119 7 6 6.881 6 5.5S7.119 3 8.5 3h19A2.5 2.5 0 0 1 30 5.5z"></path><path fill="#55ACEE" d="M30 6H6a2 2 0 0 0-2 2v26h28V8a2 2 0 0 0-2-2z"></path><path fill="#3B88C3" d="M35 33v-1a2 2 0 0 0-2-2H22.071l-3.364 3.364a.999.999 0 0 1-1.414 0L13.929 30H3a2 2 0 0 0-2 2v1c0 1.104-.104 2 1 2h32c1.104 0 1-.896 1-2z"></path><circle fill="#FFF" cx="24.5" cy="14.5" r="4.5"></circle><circle fill="#DD2E44" cx="24.5" cy="14.5" r="2.721"></circle><circle fill="#FFF" cx="11.5" cy="14.5" r="4.5"></circle><path fill="#F5F8FA" d="M29 25.5a2.5 2.5 0 0 1-2.5 2.5h-17a2.5 2.5 0 1 1 0-5h17a2.5 2.5 0 0 1 2.5 2.5z"></path><path fill="#CCD6DD" d="M17 23h2v5h-2zm-5 0h2v5h-2zm10 0h2v5h-2zM7 25.5a2.5 2.5 0 0 0 2 2.45v-4.9a2.5 2.5 0 0 0-2 2.45zm20-2.45v4.899a2.5 2.5 0 0 0 0-4.899z"></path><circle fill="#DD2E44" cx="11.5" cy="14.5" r="2.721"></circle></g></svg> 
+					<h5 class="card-title">Free AI Prompt Generator</h5>
+					<p class="card-text small text-muted">Generate professional prompts with our free AI Prompt Generator. No registration required, no limits, and compatible with ChatGPT, Gemini, Claude, and more</p>
+					<a href="https://online-tools.muisca.co/en/tools/generators/ai-prompt-generator" class="btn btn-primary btn-sm">Probar</a>
+				</div>
+			</div>
+		</div><script type='application/ld+json'>[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Free AI Prompt Generator",
+        "url": "https://online-tools.muisca.co/en/tools/generators/ai-prompt-generator",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "description": "Generate professional prompts with our free AI Prompt Generator. No registration required, no limits, and compatible with ChatGPT, Gemini, Claude, and more",
+        "image": "https://online-tools.muisca.co/images/generadores-generador-prompts-ai.png",
+        "creator": {
+            "@type": "Organization",
+            "name": "Online Tools - Muisca",
+            "url": "https://online-tools.muisca.co"
+        }
+    },
+    {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the AI ​​Prompt Generator?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It's a free tool that creates professional and detailed prompts to guide artificial intelligence in generating high-quality text."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to register to use the prompt generator?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, the service is 100% free and requires no registration or login."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are there limits on the number of uses?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, you can use the prompt generator as many times as you want, with no limits or restrictions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What types of text can I generate with this tool?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can generate prompts for blog posts, promotional texts, scientific documents, children's stories, product descriptions, and more."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the AI ​​Prompt Generator work in all languages?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can write your prompt in any language, and the tool will generate prompts tailored to the language of the text."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use the generated prompts in any AI model?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the prompts are compatible with ChatGPT, Gemini, Claude, Mistral, Llama, and any other AI model."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the tool save my data or text?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, the system does not store any information or generated text; all information is processed temporarily and securely."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use the generated prompts for commercial purposes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you are free to use the generated prompts and text in your personal or commercial projects."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the tool generate the final text or just the prompt?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "This tool generates the ideal prompt to then be used with generative AI to obtain the final text."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Who can benefit from the AI ​​Prompt Generator?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Anyone working with artificial intelligence: copywriters, developers, content creators, researchers, students, or digital marketers."
+                }
+            }
+        ]
+    }
+]</script>
+		<div class="col-md-4 mb-4">
+			<div class="card h-100 shadow-sm">
+				<div class="card-body text-center">
+					<svg height="86px" width="86px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 496.078 496.078" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#F15249;" d="M496,374.439c0,29.6-24,53.6-53.6,53.6H53.6c-29.6,0-53.6-24-53.6-53.6v-252.8 c0-29.6,24-53.6,53.6-53.6h388.8c29.6,0,53.6,24,53.6,53.6V374.439z"></path> <path style="fill:#AD0E0E;" d="M56,68.039h386.4c29.6,0,53.6,20.8,53.6,50.4v251.2c1.6,31.2-21.6,58.4-51.2,58.4"></path> <polygon style="fill:#FFFFFF;" points="168,128.839 168,359.239 324.8,244.039 "></polygon> <polygon style="fill:#EFEFEF;" points="168,239.239 168,359.239 324.8,244.039 "></polygon> <g> <circle style="fill:#AD0E0E;" cx="51.2" cy="116.839" r="19.2"></circle> <circle style="fill:#AD0E0E;" cx="51.2" cy="180.839" r="19.2"></circle> <circle style="fill:#AD0E0E;" cx="51.2" cy="244.039" r="19.2"></circle> <circle style="fill:#AD0E0E;" cx="51.2" cy="307.239" r="19.2"></circle> <circle style="fill:#AD0E0E;" cx="51.2" cy="371.239" r="19.2"></circle> </g> <g> <circle style="fill:#F15249;" cx="444.8" cy="116.839" r="19.2"></circle> <circle style="fill:#F15249;" cx="444.8" cy="180.839" r="19.2"></circle> <circle style="fill:#F15249;" cx="444.8" cy="244.039" r="19.2"></circle> <circle style="fill:#F15249;" cx="444.8" cy="307.239" r="19.2"></circle> <circle style="fill:#F15249;" cx="444.8" cy="371.239" r="19.2"></circle> </g> </g></svg> 
+					<h5 class="card-title">Free Online Video to ASCII Art Converter</h5>
+					<p class="card-text small text-muted">Convert any video to ASCII animation with minimal configuration</p>
+					<a href="https://online-tools.muisca.co/en/tools/generators/video-to-ascii-art" class="btn btn-primary btn-sm">Probar</a>
+				</div>
+			</div>
+		</div><script type='application/ld+json'>[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Free Online Video to ASCII Art Converter",
+        "url": "https://online-tools.muisca.co/en/tools/generators/video-to-ascii-art",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "description": "Convert any video to ASCII animation with minimal configuration",
+        "image": "https://online-tools.muisca.co/images/online-tools.jpg",
+        "creator": {
+            "@type": "Organization",
+            "name": "Online Tools - Muisca",
+            "url": "https://online-tools.muisca.co"
+        }
+    },
+    {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is the Online Video to ASCII Art Converter free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our tool is completely free and does not require registration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to install any software?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, it works directly in your browser without any installations or plugins."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it from a mobile or tablet?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with mobile devices, tablets, and computers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does video to ASCII conversion work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Just upload your video or paste the URL, adjust the customization options, and the tool generates the ASCII animation in real time."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I adjust brightness, saturation, and colors?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can modify brightness, saturation, colors, and apply gradient background or image effects to get the desired result."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I choose the character palette?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can select different palettes: letters, numbers, alphanumeric combinations, or custom palettes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What audio options do I have?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can use the original video audio, import your own sound, or generate the video without audio."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I preview the video before exporting it?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the real-time preview lets you see how the animation will look before downloading."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the video processed in the browser?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, everything is done on your device; we do not upload files to any server, ensuring total privacy."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the conversion process fast?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, creating the ASCII video takes roughly the same time as the original video duration, faster than many desktop editors."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my video or audio stored on any server?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, everything is processed locally; your files are never uploaded or stored."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I generate multiple videos in a row?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can convert as many videos as you want without limit."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for artists and content creators?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, ideal for digital creators, artists, developers, and anyone who wants to experiment with ASCII animations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it for educational projects or learning?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is perfect for teaching digital art, character encoding, or visual effects."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work in any modern browser?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with Chrome, Firefox, Edge, Safari, and mobile browsers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I share the videos on social media or blogs?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can export your video in a compatible format and share it easily."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it safe?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, since everything is processed in your browser, your videos and audio never leave your device."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I adjust the resolution or size of the animation?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can set the width in characters and other parameters to fit your needs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it compatible with long or short videos?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the tool handles videos of different durations and sizes without issue."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it for entertainment or memes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is ideal for creating fun ASCII animations, memes, or artistic projects."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What advantages does it have over other video to ASCII converters?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "100% local processing, full customization, flexible audio, real-time preview, fast, and completely free."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it easy to use for beginners?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, its intuitive interface allows anyone to generate ASCII animations without prior experience."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it for creative or scientific experiments?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is perfect for creative projects, experimental visualizations, and educational demonstrations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I download the final video?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the ASCII video can be exported in a compatible format for immediate use."
+                }
+            }
+        ]
+    }
+]</script>
+		<div class="col-md-4 mb-4">
+			<div class="card h-100 shadow-sm">
+				<div class="card-body text-center">
+					<svg height="86px" width="86px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 392.598 392.598" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#FFFFFF;" d="M21.818,359.822c0,6.012,4.848,10.925,10.925,10.925h327.111c6.012,0,10.925-4.848,10.925-10.925 V106.731H21.818V359.822z"></path> <path style="fill:#56ACE0;" d="M370.78,32.711c0-6.012-4.848-10.925-10.925-10.925H32.743c-6.012,0-10.925,4.848-10.925,10.925 v52.17H370.78L370.78,32.711L370.78,32.711z"></path> <path style="fill:#FFC10D;" d="M43.604,128.517v12.994h36.461c6.012,0,10.925,4.848,10.925,10.925 c0,6.012-4.848,10.925-10.925,10.925H43.604v18.489h22.949c6.012,0,10.925,4.848,10.925,10.925s-4.848,10.925-10.925,10.925H43.604 v145.325h305.325V128.517H43.604z"></path> <g> <path style="fill:#194F82;" d="M51.62,266.214c0,32.517,25.018,54.238,55.919,54.238c16.226,0,30.384-6.723,42.343-20.234 l-15.063-15.515c-7.305,9.05-16.743,13.705-28.315,13.705c-18.36,0-30.513-16.162-30.513-32.517 c0-19.523,15.321-32.065,32.129-32.065c11.055,0,20.299,4.655,27.733,13.899l14.61-16.614 c-11.636-13.188-26.182-19.782-43.507-19.782C74.958,211.329,51.62,236.735,51.62,266.214z"></path> <path style="fill:#194F82;" d="M216.727,296.792c-2.651,1.681-5.883,2.78-10.214,2.78c-9.632,0-20.17-4.913-31.547-14.933 l-14.093,17.261c13.382,12.347,28.444,18.554,45.123,18.554c11.572,0,20.816-3.038,27.992-8.792 c14.287-11.507,13.317-35.62,2.327-44.606c-5.689-4.719-13.317-8.663-23.337-11.119c-10.02-2.457-16.226-4.913-19.135-6.4 c-4.396-2.133-6.4-10.214-0.776-14.675c2.327-1.875,5.301-2.78,9.244-2.78c9.762,0,19.265,3.491,28.38,10.408l11.895-17.261 c-5.236-4.396-20.493-13.899-39.564-13.899c-10.731,0-19.653,2.909-26.958,8.145c-15.321,10.925-12.541,37.236-2.263,45.188 c5.818,4.59,14.675,8.469,26.958,11.378c7.758,1.939,12.994,3.685,15.515,5.624C223.838,287.289,219.895,294.788,216.727,296.792z"></path> <path style="fill:#194F82;" d="M312.986,296.792c-2.651,1.681-5.883,2.78-10.214,2.78c-9.632,0-20.17-4.913-31.547-14.933 l-14.093,17.261c13.382,12.347,28.444,18.554,45.123,18.554c11.572,0,20.816-3.038,27.992-8.792 c14.287-11.507,13.317-35.62,2.327-44.606c-5.689-4.719-13.317-8.663-23.337-11.119c-10.02-2.457-16.226-4.913-19.135-6.4 c-4.396-2.133-6.4-10.214-0.776-14.675c2.327-1.875,5.301-2.78,9.244-2.78c9.762,0,19.265,3.491,28.38,10.408l11.895-17.261 c-5.236-4.396-20.493-13.899-39.564-13.899c-10.731,0-19.653,2.909-26.958,8.145c-15.321,10.925-12.541,37.236-2.263,45.188 c5.818,4.59,14.675,8.469,26.958,11.378c7.758,1.939,12.994,3.685,15.515,5.624C320.097,287.289,316.154,294.788,312.986,296.792z"></path> <path style="fill:#194F82;" d="M359.855,0H32.743C14.707,0,0.032,14.675,0.032,32.711v327.111 c0,18.101,14.675,32.776,32.711,32.776h327.111c18.036,0,32.711-14.675,32.711-32.711V32.711C392.566,14.675,377.891,0,359.855,0z M21.818,32.711c0-6.012,4.848-10.925,10.925-10.925h327.111c6.012,0,10.925,4.848,10.925,10.925v52.17H21.818V32.711z M370.78,359.822L370.78,359.822c0,6.012-4.848,10.925-10.925,10.925H32.743c-6.012,0-10.925-4.848-10.925-10.925V106.731H370.78 L370.78,359.822L370.78,359.822z"></path> <path style="fill:#194F82;" d="M75.216,40.533H58.279c-6.012,0-10.925,4.848-10.925,10.925s4.848,10.925,10.925,10.925h16.937 c6.012,0,10.925-4.848,10.925-10.925S81.228,40.533,75.216,40.533z"></path> <path style="fill:#194F82;" d="M138.828,40.533h-16.937c-6.012,0-10.925,4.848-10.925,10.925s4.848,10.925,10.925,10.925h16.937 c5.947,0,10.925-4.848,10.925-10.925S144.84,40.533,138.828,40.533z"></path> <path style="fill:#194F82;" d="M204.768,40.533h-17.002c-6.012,0-10.925,4.848-10.925,10.925s4.848,10.925,10.925,10.925h17.002 c6.012,0,10.925-4.848,10.925-10.925S210.844,40.533,204.768,40.533z"></path> </g> </g></svg> 
+					<h5 class="card-title">Online CSS Style Compressor</h5>
+					<p class="card-text small text-muted">Make your website load faster. Compress and optimize your CSS styles</p>
+					<a href="https://online-tools.muisca.co/en/tools/compressors/css-compress" class="btn btn-primary btn-sm">Probar</a>
+				</div>
+			</div>
+		</div><script type='application/ld+json'>[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Online CSS Style Compressor",
+        "url": "https://online-tools.muisca.co/en/tools/compressors/css-compress",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "description": "Make your website load faster. Compress and optimize your CSS styles",
+        "image": "https://online-tools.muisca.co/images/online-tools.jpg",
+        "creator": {
+            "@type": "Organization",
+            "name": "Online Tools - Muisca",
+            "url": "https://online-tools.muisca.co"
+        }
+    },
+    {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is the Online CSS Compressor free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our tool is completely free and requires no registration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to install any software?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, it works directly in your browser with no installations or plugins."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it from a mobile phone or tablet?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with mobile devices, tablets, and computers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does CSS compression work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Just paste your CSS code and the tool optimizes it instantly, removing spaces, comments, and unnecessary characters."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my code sent to any server?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, the entire process happens in your browser; your code is never uploaded to our servers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it secure?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, since it is processed locally, your code remains private and secure."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the compression process fast?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, even large CSS files are optimized in seconds."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I compress multiple CSS files consecutively?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can process as many files as you need without limits."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work in any modern browser?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with Chrome, Firefox, Edge, Safari, and mobile browsers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful to improve my website performance?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, reducing your CSS file size helps your website load faster and perform better."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it for professional and personal projects?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is ideal for web developers, designers, and anyone who wants to optimize their stylesheets."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I compare the original CSS with the compressed version?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can see the size and content differences before downloading."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it compatible with modern and advanced CSS?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it supports all types of CSS syntax, including advanced selectors and media queries."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I download the compressed CSS?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can copy it or download it directly from the tool."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it easy to use for beginners?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, its intuitive interface allows CSS optimization without prior experience."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are the advantages over other online CSS compressors?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "100% local processing, fast, secure, free, no registration, unlimited use, and efficient results."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it help reduce the size of my web projects?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, compressing CSS reduces project weight, improves load times, and simplifies file management."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it for learning or experimentation?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is useful for students and developers who want to understand how to optimize CSS."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work with CSS frameworks like Bootstrap or Tailwind?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it can compress any CSS code, including large and complex frameworks."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the compressed CSS still work the same as the original?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the tool maintains the code functionality while reducing its size."
+                }
+            }
+        ]
+    }
+]</script>
+		<div class="col-md-4 mb-4">
+			<div class="card h-100 shadow-sm">
+				<div class="card-body text-center">
+					<svg height="86px" width="86px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#FFB656;" d="M47.76,472.118c-22.176,0-40.215-18.04-40.215-40.215V80.097c0-22.176,18.04-40.215,40.215-40.215 h341.476c11.383,0,22.277,4.852,29.89,13.313l75.005,83.339c6.657,7.398,10.323,16.951,10.323,26.902v268.468 c0,22.174-18.04,40.214-40.215,40.214H47.76z"></path> <path style="fill:#FFA733;" d="M494.132,136.534l-75.005-83.339c-7.614-8.461-18.509-13.313-29.891-13.313h-32.337 c11.383,0,22.277,4.852,29.89,13.313l75.005,83.339c6.657,7.398,10.323,16.951,10.323,26.902v268.468 c0.001,22.174-18.039,40.214-40.214,40.214h32.337c22.176,0,40.215-18.04,40.215-40.215V163.436 C504.455,153.485,500.789,143.93,494.132,136.534z"></path> <path style="fill:#3E3D43;" d="M140.036,191.865c-19.564,0-35.48-15.916-35.48-35.48V39.882h238.215v116.503 c0,19.564-15.916,35.48-35.48,35.48H140.036z"></path> <path style="fill:#2E2D30;" d="M309.895,39.882v116.503c0,19.564-15.916,35.48-35.48,35.48h32.876 c19.564,0,35.48-15.916,35.48-35.48V39.882H309.895z"></path> <g> <path style="fill:#ECE5DD;" d="M61.44,472.118V323.604c0-25.687,20.898-46.586,46.586-46.586h295.95 c25.686,0,46.584,20.898,46.584,46.586v148.513H61.44z"></path> <path style="fill:#ECE5DD;" d="M233.903,152.22V79.527c0-4.037,3.272-7.308,7.308-7.308h51.134c4.037,0,7.308,3.272,7.308,7.308 v72.692c0,4.037-3.272,7.308-7.308,7.308h-51.134C237.176,159.528,233.903,156.256,233.903,152.22z"></path> </g> <g> <path style="fill:#BABABA;" d="M126.653,328.758H256c4.466,0,8.084-3.62,8.084-8.084s-3.618-8.084-8.084-8.084H126.653 c-4.465,0-8.084,3.62-8.084,8.084S122.188,328.758,126.653,328.758z"></path> <path style="fill:#BABABA;" d="M288.337,328.758h32.337c4.466,0,8.084-3.62,8.084-8.084s-3.618-8.084-8.084-8.084h-32.337 c-4.466,0-8.084,3.62-8.084,8.084S283.871,328.758,288.337,328.758z"></path> <path style="fill:#BABABA;" d="M385.347,312.589H353.01c-4.466,0-8.084,3.62-8.084,8.084s3.618,8.084,8.084,8.084h32.337 c4.466,0,8.084-3.62,8.084-8.084S389.813,312.589,385.347,312.589z"></path> <path style="fill:#BABABA;" d="M126.653,371.874h172.463c4.466,0,8.084-3.62,8.084-8.084s-3.618-8.084-8.084-8.084H126.653 c-4.465,0-8.084,3.62-8.084,8.084S122.188,371.874,126.653,371.874z"></path> <path style="fill:#BABABA;" d="M385.347,355.705h-43.116c-4.466,0-8.084,3.62-8.084,8.084s3.618,8.084,8.084,8.084h43.116 c4.466,0,8.084-3.62,8.084-8.084S389.813,355.705,385.347,355.705z"></path> <path style="fill:#BABABA;" d="M191.326,398.821h-64.674c-4.465,0-8.084,3.62-8.084,8.084s3.62,8.084,8.084,8.084h64.674 c4.465,0,8.084-3.62,8.084-8.084S195.791,398.821,191.326,398.821z"></path> <path style="fill:#BABABA;" d="M385.347,398.821H234.442c-4.465,0-8.084,3.62-8.084,8.084s3.62,8.084,8.084,8.084h150.905 c4.466,0,8.084-3.62,8.084-8.084S389.813,398.821,385.347,398.821z"></path> </g> <path d="M499.739,131.486l-75.003-83.339c-9.044-10.048-21.983-15.811-35.5-15.811H47.76C21.425,32.337,0,53.762,0,80.097v351.807 c0,26.334,21.425,47.759,47.76,47.759h416.48c26.334,0,47.759-21.425,47.759-47.76V163.436 C512,151.617,507.646,140.27,499.739,131.486z M113.179,48.505h220.968v107.88c0,14.809-12.049,26.857-26.857,26.857H140.036 c-14.809,0-26.857-12.048-26.857-26.857V48.505z M495.832,431.903c0,17.448-14.144,31.592-31.592,31.592h-6.134v-139.89 c0-29.895-24.235-54.131-54.131-54.131h-56.057c-4.465,0-8.084,3.62-8.084,8.084c0,4.465,3.62,8.084,8.084,8.084h56.057 c20.966,0,37.962,16.996,37.962,37.962v139.89H70.063v-139.89c0-20.966,16.996-37.962,37.962-37.962h204.248 c4.465,0,8.084-3.62,8.084-8.084c0-4.465-3.62-8.084-8.084-8.084H108.026c-29.895,0-54.131,24.235-54.131,54.131v139.89H47.76 c-17.448,0-31.592-14.144-31.592-31.592V80.097c0-17.448,14.144-31.592,31.592-31.592h49.25v107.88 c0,23.762,19.263,43.025,43.025,43.025h167.255c23.762,0,43.025-19.263,43.025-43.025V48.505h38.92 c8.941,0,17.5,3.811,23.481,10.458l75.005,83.339c5.23,5.811,8.109,13.316,8.109,21.133v268.468H495.832z"></path> <path d="M234.442,167.074h64.674c4.466,0,8.084-3.62,8.084-8.084V72.758c0-4.465-3.618-8.084-8.084-8.084h-64.674 c-4.465,0-8.084,3.62-8.084,8.084v86.232C226.358,163.454,229.977,167.074,234.442,167.074z M242.526,80.842h48.505v70.063h-48.505 V80.842z"></path> </g></svg> 
+					<h5 class="card-title">Online Data Storage Unit Converter</h5>
+					<p class="card-text small text-muted">Convert between different data storage units such as: Byte, Kilobyte, Terabyte, etc.</p>
+					<a href="https://online-tools.muisca.co/en/tools/converters/data-storage" class="btn btn-primary btn-sm">Probar</a>
+				</div>
+			</div>
+		</div><script type='application/ld+json'>[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Online Data Storage Unit Converter",
+        "url": "https://online-tools.muisca.co/en/tools/converters/data-storage",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "description": "Convert between different data storage units such as: Byte, Kilobyte, Terabyte, etc.",
+        "image": "https://online-tools.muisca.co/images/online-tools.jpg",
+        "creator": {
+            "@type": "Organization",
+            "name": "Online Tools - Muisca",
+            "url": "https://online-tools.muisca.co"
+        }
+    },
+    {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is the Online Storage Units Converter free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our tool is completely free and requires no registration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to install any software?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, it works directly in your browser without installations or plugins."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it from a mobile phone or tablet?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with mobile devices, tablets, and computers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which storage units does it support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It supports bits, bytes, kilobytes, megabytes, gigabytes, terabytes, petabytes, and their binary versions like kibibytes, mebibytes, gibibytes, and tebibytes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does the converter work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Just enter a value, select the source and target units; the tool generates the result instantly and shows the formula used."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it fast?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, conversions are performed in real-time without pressing any buttons."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are my data stored?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, all information is processed in your browser; we do not store any data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it secure?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, since all processing occurs locally, your information remains private."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work on any modern browser?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with Chrome, Firefox, Edge, Safari, and mobile browsers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for students?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it allows practicing and learning storage unit conversions clearly and quickly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for IT professionals?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it facilitates fast and accurate calculations of storage capacity for projects, servers, and databases."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it for large amounts of data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it supports very large values as long as your browser can handle them."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I see how the conversion is done?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the tool shows the formula used so you can understand the calculation behind the result."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it easy to use for beginners?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, its intuitive and friendly interface is suitable for any skill level."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What advantages does it have over other conversion tools?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Local processing, instant results, support for binary and decimal units, free, secure, and no registration required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I compare multiple units at the same time?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can perform as many consecutive conversions as needed."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it support historical or non-standard units?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Currently, it supports the most common modern and binary units; future updates may include more units."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it help me understand data conversions better?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, by showing the formula and result, it facilitates learning and understanding storage equivalences."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is any history of my conversions saved?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, all calculations are processed locally and are not stored on any server."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it for programming and data analysis projects?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is ideal for calculating file sizes, memory, and storage in IT projects and software development."
+                }
+            }
+        ]
+    }
+]</script>
+		<div class="col-md-4 mb-4">
+			<div class="card h-100 shadow-sm">
+				<div class="card-body text-center">
+					<svg height="86px" width="86px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.001 512.001" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon style="fill:#E6EAEA;" points="64.68,147.295 64.68,421.231 147.296,503.847 373.402,503.847 373.402,147.295 "></polygon> <polygon style="fill:#CDD4D5;" points="64.68,147.295 64.68,421.231 147.296,503.847 221.215,503.847 221.215,147.295 "></polygon> <g> <path style="fill:#F0353D;" d="M325.572,220.671H112.51c-4.503,0-8.153-3.649-8.153-8.153c0-4.504,3.65-8.153,8.153-8.153h213.062 c4.503,0,8.153,3.649,8.153,8.153C333.725,217.022,330.074,220.671,325.572,220.671z"></path> <path style="fill:#F0353D;" d="M325.572,290.242H112.51c-4.503,0-8.153-3.649-8.153-8.153c0-4.504,3.65-8.153,8.153-8.153h213.062 c4.503,0,8.153,3.649,8.153,8.153C333.725,286.593,330.074,290.242,325.572,290.242z"></path> <path style="fill:#F0353D;" d="M325.572,359.813H112.51c-4.503,0-8.153-3.649-8.153-8.153c0-4.504,3.65-8.153,8.153-8.153h213.062 c4.503,0,8.153,3.649,8.153,8.153C333.725,356.164,330.074,359.813,325.572,359.813z"></path> <path style="fill:#F0353D;" d="M325.572,429.384H112.51c-4.503,0-8.153-3.649-8.153-8.153s3.65-8.153,8.153-8.153h213.062 c4.503,0,8.153,3.649,8.153,8.153S330.074,429.384,325.572,429.384z"></path> </g> <polygon style="fill:#9BAAAB;" points="147.296,421.231 64.68,421.231 147.296,503.847 "></polygon> <polygon style="fill:#4ACFD9;" points="377.75,8.153 195.126,8.153 125.555,8.153 125.555,86.42 125.555,121.206 153.383,86.42 247.304,86.42 247.304,373.401 325.572,373.401 325.572,86.42 419.493,86.42 447.321,121.206 447.321,86.42 447.321,8.153 "></polygon> <polygon style="fill:#0295AA;" points="195.126,8.153 125.555,8.153 125.555,86.42 125.555,121.206 153.383,86.42 247.304,86.42 247.304,373.401 286.438,373.401 286.438,8.153 "></polygon> <g> <path style="fill:#FFFFFF;" d="M425.58,46.743h-56.527c-4.503,0-8.153-3.649-8.153-8.153s3.65-8.153,8.153-8.153h56.527 c4.503,0,8.153,3.649,8.153,8.153S430.083,46.743,425.58,46.743z"></path> <path style="fill:#FFFFFF;" d="M338.616,46.743h-39.134c-4.503,0-8.153-3.649-8.153-8.153s3.65-8.153,8.153-8.153h39.134 c4.503,0,8.153,3.649,8.153,8.153S343.119,46.743,338.616,46.743z"></path> </g> <path d="M447.321,0H125.555c-4.503,0-8.153,3.649-8.153,8.153v113.053c0,3.463,2.187,6.546,5.455,7.693 c3.267,1.145,6.902,0.103,9.065-2.6l25.38-31.726h81.849v44.569H64.68c-4.503,0-8.153,3.649-8.153,8.153v273.933 c0,0.27,0.014,0.539,0.04,0.809c0.012,0.116,0.034,0.229,0.05,0.345c0.021,0.148,0.039,0.297,0.067,0.444 c0.027,0.134,0.063,0.264,0.097,0.396c0.032,0.126,0.06,0.253,0.097,0.377c0.039,0.13,0.088,0.257,0.134,0.384 c0.045,0.124,0.085,0.248,0.135,0.37c0.05,0.12,0.108,0.234,0.162,0.35c0.059,0.125,0.114,0.25,0.179,0.373 c0.06,0.112,0.128,0.22,0.193,0.328c0.071,0.118,0.138,0.239,0.216,0.355c0.08,0.121,0.171,0.234,0.258,0.35 c0.073,0.097,0.14,0.197,0.217,0.291c0.161,0.196,0.332,0.384,0.51,0.564c0.011,0.011,0.02,0.023,0.03,0.034l82.616,82.616 c0.012,0.012,0.026,0.023,0.038,0.035c0.178,0.176,0.364,0.346,0.559,0.505c0.095,0.077,0.193,0.145,0.29,0.216 c0.116,0.087,0.23,0.177,0.351,0.258c0.114,0.076,0.234,0.143,0.35,0.213c0.111,0.066,0.22,0.136,0.334,0.198 c0.12,0.064,0.242,0.118,0.365,0.176c0.118,0.057,0.236,0.115,0.358,0.166c0.12,0.049,0.241,0.089,0.362,0.133 c0.129,0.047,0.259,0.097,0.391,0.137c0.121,0.037,0.242,0.063,0.364,0.094c0.136,0.035,0.271,0.073,0.41,0.1 c0.141,0.028,0.283,0.045,0.425,0.065c0.122,0.017,0.24,0.04,0.363,0.052c0.267,0.026,0.536,0.04,0.804,0.04H373.4 c4.503,0,8.153-3.649,8.153-8.153V147.296c0-4.504-3.65-8.153-8.153-8.153h-39.675v-44.57h81.849l25.38,31.727 c2.163,2.702,5.797,3.745,9.065,2.6c3.268-1.147,5.455-4.231,5.455-7.693V8.153C455.474,3.649,451.824,0,447.321,0z M112.51,429.384 h26.633v54.78l-54.78-54.78H112.51z M365.249,495.694h-209.8v-74.463c0-4.504-3.65-8.153-8.153-8.153H112.51H72.833V155.448h166.318 v57.07v69.571v69.571v21.741c0,4.504,3.65,8.153,8.153,8.153h78.268c4.503,0,8.153-3.649,8.153-8.153V351.66v-69.571v-69.571v-57.07 h31.524V495.694z M439.168,97.964l-13.31-16.637c-1.547-1.933-3.889-3.059-6.366-3.059h-93.921c-4.503,0-8.153,3.649-8.153,8.153 v60.875v65.223v69.571v69.571v13.588h-61.962V351.66v-69.571v-69.571v-65.223V86.42c0-4.504-3.65-8.153-8.153-8.153h-93.921 c-2.476,0-4.819,1.126-6.366,3.059l-13.31,16.637V16.306h305.461V97.964z"></path> </g></svg> 
+					<h5 class="card-title">Online OCR Image to Text + Text to Speech</h5>
+					<p class="card-text small text-muted">Extract text from any image with our OCR engine, you can click Play to hear a reading of the text</p>
+					<a href="https://online-tools.muisca.co/en/tools/readers/ocr-text-to-speech" class="btn btn-primary btn-sm">Probar</a>
+				</div>
+			</div>
+		</div><script type='application/ld+json'>[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Online OCR Image to Text + Text to Speech",
+        "url": "https://online-tools.muisca.co/en/tools/readers/ocr-text-to-speech",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "description": "Extract text from any image with our OCR engine, you can click Play to hear a reading of the text",
+        "image": "https://online-tools.muisca.co/images/online-tools.jpg",
+        "creator": {
+            "@type": "Organization",
+            "name": "Online Tools - Muisca",
+            "url": "https://online-tools.muisca.co"
+        }
+    },
+    {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is the Online OCR + Text-to-Speech Reader free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our tool is completely free and does not require registration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to install any software?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, it works directly in your browser without installations or plugins."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it from a mobile or tablet?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with mobile devices, tablets, and computers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does the OCR work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Just upload your image and the tool automatically recognizes the text, making it editable instantly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I listen to the text with voice?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can play the text using the text-to-speech function directly from the tool."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What voices are available?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can choose between male and female voices, and in different languages such as English and Spanish."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the processing fast?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, OCR conversion and text-to-speech playback are done in seconds."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my information stored?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, everything is processed in your browser; your images and texts are not uploaded to any server."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it safe?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, since everything is done on the client side, your information remains private and secure."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I edit the recognized text?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, once converted, you can copy, modify, or save the text as needed."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work in any modern browser?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with Chrome, Firefox, Edge, Safari, and modern mobile browsers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it to transcribe long documents?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it supports images with extensive text without problems."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it to read books or articles?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, perfect for listening to books, documents, or any digitized text."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I select the text-to-speech language?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can choose English, Spanish, or other available languages depending on the content."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I listen to the text multiple times?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can play it as many times as you want."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for visually impaired people?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it facilitates access to information and improves accessibility to documents and books."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I copy the recognized text to other programs?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can copy it to Word, Google Docs, spreadsheets, or any other application."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it for translation or language learning?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, listening to texts in different voices and languages can help practice languages."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for students and professionals?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is ideal for students, teachers, professionals, and anyone who needs to convert images to text and listen to it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What advantages does it have over other online OCR tools?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Local processing, multiple voices, languages, fast, free, and no registration required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it easy to use for beginners?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, its simple interface allows anyone to use the tool without prior experience."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work with all types of images?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it supports photos, screenshots, and scanned documents in common formats like PNG, JPG, and JPEG."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I adjust the speed or pitch of the voice?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the tool allows you to configure playback parameters to customize the audio experience."
+                }
+            }
+        ]
+    }
+]</script>
+		<div class="col-md-4 mb-4">
+			<div class="card h-100 shadow-sm">
+				<div class="card-body text-center">
+					<svg width="86px" height="86px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" id="Layer_1" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path clip-rule="evenodd" d="M36.926,7.981c15.615,0,28.278,12.658,28.278,28.278 c0,15.616-12.663,28.274-28.278,28.274S8.648,51.876,8.648,36.26C8.648,20.64,21.311,7.981,36.926,7.981L36.926,7.981z" fill="#F2F2F2" fill-rule="evenodd"></path> </g> <g> <path clip-rule="evenodd" d="M62.188,48.976l8.724,9.008L57.398,71.074l-8.781-9.061 C54.494,59.34,59.289,54.718,62.188,48.976L62.188,48.976z" fill="#F2F2F2" fill-rule="evenodd"></path> <path d="M57.369,72.995l-11.068-11.42l1.754-0.798c5.569-2.534,10.158-6.943,12.922-12.414l0.859-1.704l10.998,11.354 L57.369,72.995z M50.889,62.404l6.541,6.749l11.562-11.2l-6.495-6.707C59.729,55.951,55.693,59.83,50.889,62.404z"></path> </g> <g> <rect clip-rule="evenodd" fill="#39B6CC" fill-rule="evenodd" height="24.72" transform="matrix(-0.6949 -0.7191 0.7191 -0.6949 70.7973 177.4167)" width="25.522" x="60.272" y="61.33"></rect> <path d="M72.98,93.377L53.357,73.07l19.728-19.066L92.709,74.31L72.98,93.377z M57.199,73.136l15.848,16.398l15.82-15.29 L73.02,57.847L57.199,73.136z"></path> </g> <g> <path clip-rule="evenodd" d="M36.926,14.527c-11.998,0-21.727,9.729-21.727,21.732h7.987 c0-7.589,6.151-13.745,13.739-13.745c7.59,0,13.745,6.156,13.745,13.745h7.983C58.654,24.256,48.93,14.527,36.926,14.527 L36.926,14.527z" fill="#39B6CC" fill-rule="evenodd"></path> </g> <g> <path clip-rule="evenodd" d="M47.184,17.1c-1.221,2.4-2.471,4.872-3.611,7.128 c4.232,2.342,7.099,6.853,7.099,12.032h7.983C58.654,27.969,54.014,20.76,47.184,17.1L47.184,17.1z" fill="#FF7C24" fill-rule="evenodd"></path> </g> <g> <path clip-rule="evenodd" d="M36.609,32.591c3.102,0,5.611,2.51,5.611,5.607 c0,3.102-2.51,5.612-5.611,5.612c-3.098,0-5.607-2.511-5.607-5.612C31.002,35.101,33.512,32.591,36.609,32.591L36.609,32.591z" fill="#F2F2F2" fill-rule="evenodd"></path> <path d="M36.609,45.169c-3.842,0-6.967-3.127-6.967-6.971c0-3.841,3.125-6.966,6.967-6.966 c3.844,0,6.971,3.125,6.971,6.966C43.58,42.042,40.453,45.169,36.609,45.169z M36.609,33.949c-2.344,0-4.249,1.906-4.249,4.249 c0,2.346,1.905,4.254,4.249,4.254c2.346,0,4.254-1.908,4.254-4.254C40.863,35.855,38.955,33.949,36.609,33.949z" fill="#39B6CC"></path> </g> <g> <path clip-rule="evenodd" d="M36.34,32.384l6.713-3.853l-1,7.58 C42.053,36.111,40.096,32.144,36.34,32.384L36.34,32.384z" fill="#39B6CC" fill-rule="evenodd"></path> <path d="M42.053,37.47c-0.509,0-0.983-0.287-1.216-0.753c-0.025-0.05-1.544-2.984-4.171-2.984 c-0.078,0-0.158,0.002-0.24,0.007c-0.629,0.04-1.205-0.358-1.387-0.964c-0.183-0.604,0.076-1.256,0.625-1.57l6.713-3.852 c0.448-0.258,1.004-0.238,1.433,0.05c0.429,0.287,0.658,0.794,0.591,1.306l-1,7.58c-0.078,0.593-0.535,1.065-1.127,1.162 C42.199,37.464,42.126,37.47,42.053,37.47z M39.907,31.903c0.45,0.262,0.855,0.563,1.215,0.878l0.225-1.704L39.907,31.903z" fill="#39B6CC"></path> </g> <g> <rect clip-rule="evenodd" fill-rule="evenodd" height="3.741" width="3.876" x="26.212" y="50.092"></rect> </g> <g> <rect clip-rule="evenodd" fill-rule="evenodd" height="3.742" width="3.872" x="34.733" y="50.043"></rect> </g> <g> <rect clip-rule="evenodd" fill-rule="evenodd" height="3.742" width="3.876" x="43.082" y="50.043"></rect> </g> <g> <path d="M36.926,65.892C20.585,65.892,7.291,52.6,7.291,36.26c0-16.342,13.294-29.637,29.635-29.637 c6.594,0,12.838,2.121,18.055,6.135c0.963,0.738,1.881,1.537,2.725,2.371l-1.91,1.933c-0.764-0.755-1.595-1.479-2.469-2.149 c-4.74-3.646-10.41-5.571-16.4-5.571c-14.842,0-26.918,12.076-26.918,26.919c0,14.841,12.076,26.915,26.918,26.915 c14.844,0,26.92-12.074,26.92-26.915c0-1.764-0.172-3.524-0.508-5.233l2.665-0.526c0.372,1.882,0.56,3.82,0.56,5.76 C66.563,52.6,53.268,65.892,36.926,65.892z M61.859,26.093c-0.486-1.19-1.063-2.353-1.712-3.455l2.341-1.38 c0.717,1.216,1.351,2.496,1.887,3.808L61.859,26.093z"></path> </g> </g> </g></svg> 
+					<h5 class="card-title">SEO Checker Tester Online</h5>
+					<p class="card-text small text-muted">Validate and calculate your SEO score. Find out where your website&#039;s ranking is failing.</p>
+					<a href="https://online-tools.muisca.co/en/tools/calculators/seo-checker-tester" class="btn btn-primary btn-sm">Probar</a>
+				</div>
+			</div>
+		</div><script type='application/ld+json'>[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "SEO Checker Tester Online",
+        "url": "https://online-tools.muisca.co/en/tools/calculators/seo-checker-tester",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "description": "Validate and calculate your SEO score. Find out where your website's ranking is failing.",
+        "image": "https://online-tools.muisca.co/images/calculadoras-seo-checker-tester.png",
+        "creator": {
+            "@type": "Organization",
+            "name": "Online Tools - Muisca",
+            "url": "https://online-tools.muisca.co"
+        }
+    },
+    {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is the Online SEO Checker free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our tool is completely free and requires no registration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to install any software?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, it works directly in your browser with no installations or plugins."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it from a mobile phone or tablet?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with mobile devices, tablets, and computers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What SEO aspects does the tool analyze?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It analyzes Meta Title, Meta Description, canonical, charset, favicon, OpenGraph, Twitter Card, H1, images with ALT, obsolete tags, page size, Schema.org, Google Site Verification, Bing Webmaster Verification, Pinterest Domain Verification, RSS/Atom Feed, and robots.txt."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does the Online SEO Checker work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Just enter your website URL and the tool generates a complete report of all relevant SEO aspects in seconds."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it fast?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the analysis is performed in seconds with no waiting time."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are my data stored?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, all information is processed in your browser; we do not store any URL or site data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it secure?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, since all processing occurs locally, your information remains private."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work in any modern browser?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with Chrome, Firefox, Edge, Safari, and mobile browsers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a Meta Title and why is it important?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Meta Title is the title that appears in search results; it should be unique, relevant, and between 50–60 characters to attract clicks and improve ranking."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a Meta Description and why is it important?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Meta Description summarizes the page content; well-written (150–160 characters) it improves CTR even though it does not directly affect ranking."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the Canonical tag?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It indicates the main version of a page, preventing duplicate content and helping search engines index the correct URL."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is charset and why is it important?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It defines the character encoding of the page, ensuring texts, symbols, and accents display correctly in all browsers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a Favicon?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It is the icon that identifies your site in browser tabs and bookmarks, improving brand visibility and user experience."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are OpenGraph tags?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "They control how your site appears when shared on social media, improving visibility, visual appeal, and CTR."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are Twitter Cards?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "They allow showing attractive titles, descriptions, and images when sharing your site on Twitter, increasing clicks and reach."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is an H1 and why is it important?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The H1 is the main page heading; it helps search engines understand the central topic and improves content hierarchy."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are image ALT attributes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "They describe the image content, improve accessibility and SEO, and allow images to appear in visual searches."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are obsolete HTML tags?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "They are old elements that affect compatibility and accessibility; replacing them with modern alternatives improves SEO and valid code."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does page size matter?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A lightweight page improves loading speed, user experience, and search engine ranking."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Schema.org and why is it useful?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Schema.org metadata helps search engines understand content and display rich snippets, improving visibility and SEO."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Google Site Verification?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It confirms you are the site owner, allowing access to Google Search Console tools."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Bing Webmaster Verification?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It validates ownership in Bing, enabling statistics and tools to optimize visibility."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Pinterest Domain Verification?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It confirms domain ownership in Pinterest, allowing statistics and better control over how pins are displayed."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is an RSS/Atom Feed and what is it for?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It allows users and search engines to follow your posts automatically, improving indexing and reach."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the robots.txt file and what is it for?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It tells search engines which parts of your site can or cannot be crawled, optimizing SEO and protecting private sections."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use the Online SEO Checker for basic SEO audits?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is perfect for a lightweight SEO Tester and quick audits from any device."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for beginners and SEO experts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it provides clear and detailed information for any level of knowledge."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I improve my ranking with this tool?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, by correcting the analyzed aspects, you can optimize your site for search engines and improve visibility and CTR."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work for any type of website?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it analyzes blogs, online stores, corporate portals, personal pages, and any public URL."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it easy to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, its intuitive interface allows you to get a complete report by simply entering your website URL."
+                }
+            }
+        ]
+    }
+]</script>
+		<div class="col-md-4 mb-4">
+			<div class="card h-100 shadow-sm">
+				<div class="card-body text-center">
+					<svg height="86px" width="86px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 504.133 504.133" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#FF7F00;" d="M170.366,0c-55.138,11.847-98.194,81.676-98.194,166.337c0,84.645,43.055,113.357,98.194,117.847V0z"></path> <path style="fill:#FF4800;" d="M170.366,0c55.138,11.847,98.202,81.676,98.202,166.337c0,84.645-43.063,113.357-98.202,117.847V0z"></path> <path style="fill:#FFBC00;" d="M170.366,100.51c-31.508,7.617-63.449,52.768-63.449,107.488c0,54.737,31.941,73.295,63.449,76.186 V100.51z"></path> <path style="fill:#FF7F00;" d="M170.366,100.51c39.385,7.617,63.441,52.768,63.441,107.488c0,54.737-24.056,73.295-63.441,76.186 V100.51z"></path> <path style="fill:#AD4831;" d="M426.295,471.111c7.546,7.554,7.546,19.803-0.008,27.357l0,0c-7.546,7.554-19.787,7.554-27.341,0 L175.312,274.834c-7.546-7.554-7.546-19.803,0-27.341l0,0c7.562-7.554,19.81-7.554,27.349,0L426.295,471.111z"></path> <path style="fill:#893210;" d="M175.312,247.493L175.312,247.493c7.562-7.554,19.81-7.554,27.349,0l223.642,223.618 c7.546,7.554,7.546,19.803-0.008,27.357l0,0"></path> <path style="fill:#3D3D3D;" d="M129.429,264.09c-18.337-18.353-19.22-47.199-1.969-64.465c17.274-17.258,46.119-16.384,64.465,1.969 c18.345,18.322,31.909,59.865,14.643,77.139C189.31,295.983,147.767,282.419,129.429,264.09z"></path> <path d="M206.568,278.741c-17.25,17.243-58.801,3.678-77.139-14.643c-18.337-18.353-19.22-47.199-1.969-64.465"></path> </g></svg> 
+					<h5 class="card-title">Online Energy Unit Converter</h5>
+					<p class="card-text small text-muted">Convert between different energy units such as Joules, Calories, Watts, etc.</p>
+					<a href="https://online-tools.muisca.co/en/tools/converters/energy" class="btn btn-primary btn-sm">Probar</a>
+				</div>
+			</div>
+		</div><script type='application/ld+json'>[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Online Energy Unit Converter",
+        "url": "https://online-tools.muisca.co/en/tools/converters/energy",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "description": "Convert between different energy units such as Joules, Calories, Watts, etc.",
+        "image": "https://online-tools.muisca.co/images/online-tools.jpg",
+        "creator": {
+            "@type": "Organization",
+            "name": "Online Tools - Muisca",
+            "url": "https://online-tools.muisca.co"
+        }
+    },
+    {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is the Online Energy Units Converter free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our tool is completely free and requires no registration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to install any software?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, it works directly in your browser without installations or plugins."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it from a mobile phone or tablet?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with mobile devices, tablets, and computers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which energy units does it support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It supports joules, kilojoules, calories, kilocalories, electronvolts, ergs, British thermal units (BTU), therms, kilowatt-hours, watt-hours, foot-pounds, and horsepower-hours."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does the converter work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Just enter a value, select the source and target units; the result appears instantly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it fast?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, conversions are performed in real time without pressing any buttons."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are my data stored?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, all information is processed in your browser; we do not store any data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it secure?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, since all processing occurs locally, your information remains private."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work on any modern browser?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with Chrome, Firefox, Edge, Safari, and mobile browsers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for students?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it allows practicing and learning energy conversions clearly and quickly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for scientists and engineers?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it facilitates fast and accurate energy calculations for academic, industrial, or research projects."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I see how the conversion is done?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the tool can show the formula used so you can understand the calculation behind the result."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it easy to use for beginners?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, its intuitive and friendly interface is suitable for any skill level."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What advantages does it have over other conversion tools?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Local processing, instant results, support for modern and scientific units, free, secure, and no registration required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I perform multiple consecutive conversions?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can convert as many values as needed without limits."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it help me understand energy equivalences better?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, by showing clear formulas and results, it facilitates learning about different energy units."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is any history of my conversions saved?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, all calculations are processed locally and are not stored on any server."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for curious users or physics enthusiasts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it allows exploring and easily understanding how different energy units relate in physics and technology."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it for academic calculations or engineering projects?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is ideal for students, researchers, engineers, and anyone who needs precision in energy conversions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it support rare or uncommon energy units?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Currently, it supports the most common units and some advanced scientific units, with plans to add more units in future updates."
+                }
+            }
+        ]
+    }
+]</script>
+		<div class="col-md-4 mb-4">
+			<div class="card h-100 shadow-sm">
+				<div class="card-body text-center">
+					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 501.865 501.865" xml:space="preserve" width="86px" height="86px" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#40596B;" d="M480.967,0.157H21.211c-11.494,0-20.898,9.404-20.898,20.898v65.829h501.551V21.055 C501.865,9.561,492.46,0.157,480.967,0.157z"></path> <rect y="87.604" style="fill:#CDD6E0;" width="501.551" height="289.437"></rect> <rect x="26.122" y="113.727" style="fill:#F2F2F2;" width="449.306" height="237.192"></rect> <circle style="fill:#FFD15C;" cx="48.379" cy="44.042" r="21.943"></circle> <circle style="fill:#ACB3BA;" cx="107.938" cy="44.042" r="21.943"></circle> <circle style="fill:#84DBFF;" cx="167.497" cy="44.042" r="21.943"></circle> <path style="fill:#ACB3BA;" d="M446.485,21.055H268.852c-12.539,0-21.943,10.449-21.943,21.943s10.449,21.943,21.943,21.943h177.633 c12.539,0,21.943-10.449,21.943-21.943S457.979,21.055,446.485,21.055z"></path> <path style="fill:#89D6F7;" d="M420.362,332.434c0,94.041-76.278,169.273-169.273,169.273c-94.041,0-169.273-76.278-169.273-169.273 c0-34.482,10.449-66.873,28.212-94.041c2.09-2.09,3.135-5.224,5.224-7.314c25.078-33.437,60.604-56.424,103.445-64.784h1.045 c10.449-2.09,20.898-3.135,31.347-3.135c4.18,0,8.359,0,12.539,0c5.224,0,10.449,1.045,15.673,2.09 c68.963,11.494,124.343,64.784,137.927,132.702c0,2.09,1.045,3.135,1.045,5.224C419.318,312.581,420.362,321.985,420.362,332.434z"></path> <g> <path style="fill:#55BFE9;" d="M241.685,194.508c0,5.224-8.359,6.269-12.539,7.314c-3.135,1.045-6.269,4.18-9.404,7.314 c-6.269,6.269-13.584,11.494-21.943,15.673c-8.359,4.18-18.808,7.314-25.078,0c18.808-8.359,33.437-25.078,40.751-44.931 c-9.404,5.225-16.718,13.584-24.033,19.853c-9.404,7.314-19.853,13.584-28.212,21.943c-8.359,8.359-15.673,18.808-15.673,31.347 c0-6.269-4.18-13.584-10.449-16.718c-5.224-4.18-12.539-5.224-19.853-5.224c0,0,0,0-1.045,0 c25.078-33.437,60.604-56.424,103.445-64.784h1.045c2.09,8.359,7.314,16.718,14.629,20.898 C238.55,188.238,241.685,191.373,241.685,194.508z"></path> <path style="fill:#55BFE9;" d="M279.301,165.251c4.18,2.09,8.359,5.224,11.494,8.359c1.045,1.045,1.045,2.09,1.045,3.135 c-1.045,3.135-5.224,2.09-8.359,4.18c-5.224,2.09-3.135,9.404,1.045,12.539c4.18,3.135,9.404,3.135,14.629,6.269 c2.09,1.045,3.135,2.09,3.135,4.18c0,1.045-1.045,2.09-2.09,3.135c-5.224,6.269-11.494,12.539-16.718,18.808 c-1.045,1.045-3.135,3.135-5.224,4.18s-5.224,1.045-8.359,1.045c-10.449,0-24.033,2.09-27.167,12.539 c-1.045,2.09-1.045,5.224-2.09,7.314c-2.09,2.09-4.18,2.09-6.269,4.18c-2.09,3.135,1.045,7.314,1.045,11.494 c1.045,6.269-6.269,11.494-11.494,9.404c0-6.269,0-13.584-1.045-19.853c0-1.045,0-2.09-1.045-3.135s-2.09-1.045-3.135-2.09 c-6.269-2.09-13.584-3.135-18.808,2.09c-4.18,5.224-2.09,12.539,1.045,17.763c3.135,5.224,8.359,10.449,8.359,17.763 c0,3.135-1.045,7.314-4.18,7.314c-4.18,1.045-7.314-5.224-7.314-9.404c-4.18,11.494-6.269,26.122-4.18,39.706 c-9.404,2.09-18.808,5.224-28.212,7.314c-3.135,1.045-7.314,2.09-9.404,5.224c-2.09,3.135-2.09,6.269-2.09,9.404 c0,11.494,3.135,22.988,8.359,33.437c2.09,3.135,4.18,7.314,7.314,9.404c9.404,6.269,21.943,3.135,32.392,6.269 c9.404,2.09,16.718,9.404,20.898,17.763c4.18,8.359,7.314,17.763,9.404,27.167c1.045,4.18,2.09,8.359,5.224,11.494 c3.135,3.135,9.404,4.18,13.584,5.225c8.359,1.045,17.763,3.135,25.078-2.09c6.269-3.135,10.449-10.449,17.763-13.584 c4.18-2.09,10.449-1.045,14.629-2.09c5.224-1.045,10.449-5.224,8.359-10.449c-1.045-4.18-7.314-8.359-6.269-12.539 c1.045-3.135,5.224-4.18,8.359-5.225c13.584-5.224,21.943-22.988,14.629-36.571c-1.045-2.09-2.09-4.18-3.135-6.269 c0-7.314,9.404-9.404,14.629-14.629c4.18-5.224,4.18-11.494,5.224-18.808c1.045-6.269,3.135-13.584,9.404-15.673 c6.269-2.09,12.539,3.135,15.673,8.359c3.135,5.224,6.269,11.494,11.494,14.629c0-11.494,0-22.988,0-33.437 c0-4.18,0-8.359,3.135-11.494c4.18-5.224,12.539-4.18,18.808-2.09c2.09,0,4.18,1.045,6.269,1.045 C403.644,230.034,348.264,176.744,279.301,165.251z M312.738,274.965L312.738,274.965c2.09,0,4.18,0,6.269,0 c-1.045,4.18,0,8.359,3.135,11.494c1.045,1.045,3.135,2.09,4.18,4.18c3.135,3.135,4.18,8.359,2.09,12.539 c-3.135,0-7.314,0-10.449,0c-3.135-1.045-7.314-3.135-8.359-6.269c-1.045-2.09-1.045-4.18-1.045-6.269 C307.513,284.369,307.513,278.1,312.738,274.965z M262.583,333.479c-5.224-1.045-10.449-4.18-15.673-7.314 c-7.314-4.18-15.673-6.269-22.988-6.269c-3.135,0-6.269,0-8.359,0c-3.135-1.045-5.224-2.09-6.269-5.224 c-1.045-3.135,1.045-7.314,4.18-9.404c3.135-2.09,6.269-3.135,9.404-5.225l1.045-5.224c6.269,6.269,14.629,11.494,22.988,14.629 c4.18,2.09,8.359,3.135,12.539,3.135c4.18,0,9.404,0,13.584,0c1.045,0,3.135,0,4.18,0c3.135,0,6.269,0,9.404-1.045 c4.18,0,7.314-1.045,10.449-3.135c1.045,4.18-1.045,9.404-4.18,12.539c-3.135,3.135-7.314,5.224-12.539,7.314 C276.167,331.389,268.852,334.524,262.583,333.479z M328.411,366.916c0,1.045-1.045,2.09-2.09,3.135 c-1.045,0-1.045,1.045-2.09,1.045c-7.314,1.045-15.673,2.09-20.898-3.135c-3.135-2.09-4.18-5.224-6.269-8.359 c-2.09-4.18-4.18-7.314-6.269-11.494c-2.09-4.18-4.18-8.359-3.135-12.539c3.135,0,7.314,0,10.449,1.045l1.045,1.045 c-1.045,3.135,0,6.269,2.09,8.359c2.09,2.09,5.225,3.135,7.314,4.18c2.09,1.045,4.18,2.09,7.314,3.135 c3.135,1.045,6.269,3.135,9.404,5.224C327.367,359.602,328.411,362.736,328.411,366.916z M339.905,330.344 c-1.045,1.045-1.045,1.045-2.09,1.045c-6.269,2.09-14.629-3.135-15.673-10.449l1.045-1.045c5.224,0,10.449,0,14.629,0 c1.045,0,2.09,0,2.09,1.045c1.045,1.045,1.045,2.09,1.045,2.09C341.995,326.165,341.995,329.3,339.905,330.344z"></path> </g> </g></svg> 
+					<h5 class="card-title">DNS Record Lookup</h5>
+					<p class="card-text small text-muted">Free DNS Lookup tool to check A, MX, TXT, NS, SOA, SPF, and CNAME records of any domain. No signup required.</p>
+					<a href="https://online-tools.muisca.co/en/tools/dns-tools/dns-lookup" class="btn btn-primary btn-sm">Probar</a>
+				</div>
+			</div>
+		</div><script type='application/ld+json'>[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "DNS Record Lookup",
+        "url": "https://online-tools.muisca.co/en/tools/dns-tools/dns-lookup",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "description": "Free DNS Lookup tool to check A, MX, TXT, NS, SOA, SPF, and CNAME records of any domain. No signup required.",
+        "image": "https://online-tools.muisca.co/images/online-tools.jpg",
+        "creator": {
+            "@type": "Organization",
+            "name": "Online Tools - Muisca",
+            "url": "https://online-tools.muisca.co"
+        }
+    },
+    {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a DNS Lookup?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It's a query that allows you to obtain the DNS records of a domain, such as its IP addresses, mail servers, or server nameservers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a DNS Lookup used for?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It's used to diagnose network problems, verify email configurations, or check DNS propagation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is this tool free to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, DNS Lookup is completely free and requires no registration or installation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What types of records can I query?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can query A, AAAA, MX, NS, TXT, SPF, DMARC, CNAME, PTR, and SOA records."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use this tool from my mobile phone?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the DNS Lookup tool is compatible with mobile devices and modern browsers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How often are DNS records updated?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It depends on the Time to Live (TTL) of each record; it can vary from minutes to hours. What's the difference between DNS Lookup and WHOIS? => DNS Lookup shows the technical configuration of the domain, while WHOIS shows the owner and registrar information."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it to verify my corporate email?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can check the MX, SPF, and DMARC records to validate your email domain configuration."
+                }
+            }
+        ]
+    }
+]</script>
+		<div class="col-md-4 mb-4">
+			<div class="card h-100 shadow-sm">
+				<div class="card-body text-center">
+					<svg height="86px" width="86px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#FF6464;" d="M469.779,435.574H42.221c-18.891,0-34.205-15.314-34.205-34.205V110.63 c0-18.891,15.314-34.205,34.205-34.205h427.557c18.891,0,34.205,15.314,34.205,34.205V401.37 C503.983,420.26,488.669,435.574,469.779,435.574z"></path> <path style="fill:#E4EAF8;" d="M317.002,284.202v15.98c0,5.34-3.212,10.157-8.143,12.209l-63.644,26.491 c-3.826,1.593-6.317,5.328-6.317,9.471l0,0c0,5.666,4.593,10.26,10.26,10.26h201.81c5.666,0,10.26-4.593,10.26-10.26l0,0 c0-4.143-2.492-7.88-6.317-9.471l-63.648-26.494c-4.928-2.051-8.139-6.864-8.139-12.202v-15.984"></path> <path style="fill:#694B4B;" d="M350.063,110.63c-75.08,0-92.146,75.401-92.841,169.395c-0.029,3.911,2.269,7.433,5.791,9.079 c13.267,6.2,29.634,10.991,47.947,13.839h78.203c18.314-2.848,34.68-7.639,47.948-13.839c3.522-1.646,5.82-5.168,5.791-9.079 C442.209,186.031,425.143,110.63,350.063,110.63z"></path> <path style="fill:#5A4146;" d="M257.222,280.026c-0.029,3.911,2.269,7.433,5.791,9.079c13.267,6.2,29.634,10.991,47.947,13.839 h39.102V193.175c0,0-37.296,1.82-30.017,0c30.017-7.504,90.049-45.024,55.136-79.221c-7.552-2.172-15.892-3.324-25.119-3.324 C274.982,110.63,257.917,186.031,257.222,280.026z"></path> <g> <path style="fill:#FFFFFF;" d="M225.296,256.134l-20.603-34.338v-76.96c0-14.168-11.485-25.653-25.653-25.653H76.426 c-14.168,0-25.653,11.485-25.653,25.653v128.267c0,14.168,11.485,25.653,25.653,25.653H179.04 c14.168,0,25.653-11.485,25.653-25.653v-8.551h15.837C224.85,264.551,227.518,259.838,225.296,256.134z"></path> <circle style="fill:#FFFFFF;" cx="119.182" cy="392.818" r="17.102"></circle> </g> <path style="fill:#FFF082;" d="M170.489,196.142c0-26.624-24.334-47.565-51.975-41.792c-16.722,3.492-29.992,17.381-32.885,34.218 c-3.009,17.517,4.664,33.476,17.551,42.527c4.486,3.151,7.45,8.023,7.45,13.507v2.846c0,4.722,3.829,8.551,8.551,8.551h17.102 c4.722,0,8.551-3.829,8.551-8.551v-2.893c0-5.367,2.791-10.235,7.203-13.287C163.179,223.559,170.489,210.716,170.489,196.142z"></path> <path style="fill:#D29B6E;" d="M350.063,332.96L350.063,332.96c-18.891,0-34.205-15.314-34.205-34.205v-17.102h68.409v17.102 C384.267,317.646,368.953,332.96,350.063,332.96z"></path> <path style="fill:#F0C087;" d="M415.883,202.278l-4.867,53.536c-0.794,8.741-5.862,16.524-13.535,20.787l-34.537,19.187 c-8.011,4.451-17.753,4.451-25.765,0l-34.537-19.187c-7.673-4.263-12.74-12.045-13.535-20.787l-4.7-51.696 c-0.365-4.009,2.487-7.577,6.486-8.043c17.712-2.067,64.23-8.55,92.384-22.224c3.56-1.729,7.738-0.335,9.712,3.096 c3.227,5.61,9.184,13.456,18.955,18.109C414.649,196.342,416.154,199.296,415.883,202.278z"></path> <path style="fill:#E6AF78;" d="M411.91,195.037c-9.749-4.655-15.695-12.489-18.918-18.091c-0.441-0.767-1.024-1.394-1.655-1.945 c-0.172-0.151-0.355-0.282-0.538-0.416c-0.543-0.394-1.128-0.713-1.744-0.947c-0.156-0.059-0.3-0.145-0.461-0.193 c-0.745-0.226-1.529-0.313-2.315-0.292c-1.006,0.028-2.026,0.222-2.996,0.695l-0.004,0.001c-1.759,0.854-3.59,1.681-5.482,2.48 c-7.566,3.196-16.096,5.955-24.852,8.317c-4.379,1.181-8.814,2.264-13.213,3.253c-19.797,4.452-38.875,7.012-48.837,8.174 c-3.999,0.467-6.851,4.034-6.486,8.043l4.7,51.697c0.794,8.741,5.862,16.523,13.534,20.786l34.538,19.187 c3.161,1.756,6.611,2.616,10.097,2.985l-12.224-30.558l-3.723-44.665c-0.361-4.331,2.566-8.193,6.824-9.068 c14.148-2.912,28.911-6.688,42.194-11.591c5.158,5.641,11.901,11.197,20.57,15.325c3.409,1.624,5.549,2.29,13.244,2.994 l1.721-18.932C416.156,199.282,414.625,196.333,411.91,195.037z"></path> <path d="M457.991,331.481l-56.005-23.311c14.16-2.967,27.223-7.158,38.267-12.321c6.366-2.976,10.447-9.402,10.396-16.373 c-0.41-55.571-6.503-94.598-19.175-122.821c-16.099-35.858-43.49-54.04-81.412-54.04s-65.314,18.182-81.412,54.039 c-12.672,28.223-18.764,67.252-19.175,122.821c-0.051,6.971,4.03,13.399,10.397,16.373c11.045,5.163,24.108,9.353,38.267,12.321 l-56.005,23.313c-6.837,2.845-11.253,9.468-11.253,16.872c0,10.078,8.198,18.277,18.277,18.277h201.81 c10.078,0,18.277-8.198,18.277-18.277C469.244,340.95,464.828,334.326,457.991,331.481z M359.014,288.241 c-5.603,3.114-12.295,3.115-17.903,0l-34.435-19.131c-5.337-2.965-8.853-8.364-9.405-14.444l-4.632-50.943 c18.459-2.16,64.401-8.674,93.509-22.592c3.796,6.477,10.566,15.182,21.519,20.602l-4.812,52.934 c-0.553,6.08-4.068,11.479-9.405,14.444L359.014,288.241z M325.018,300.181v-2.539l8.306,4.614 c5.241,2.912,10.988,4.366,16.738,4.366c5.747,0,11.498-1.456,16.738-4.366l8.306-4.614v2.544c0,4.418,1.361,8.591,3.753,12.058 c-7.394,8.093-17.778,12.699-28.797,12.699c-11.019,0-21.405-4.608-28.798-12.701C323.657,308.774,325.018,304.6,325.018,300.181z M265.509,279.593c0.393-53.269,6.039-90.248,17.769-116.373c13.466-29.993,35.312-44.573,66.786-44.573s53.32,14.58,66.786,44.573 c11.73,26.125,17.376,63.103,17.769,116.373c0.005,0.721-0.447,1.401-1.151,1.731c-11.857,5.541-26.432,9.873-42.325,12.597v-5.185 l10.097-5.61c9.978-5.544,16.553-15.64,17.587-27.008l5.346-58.803c0.337-3.705-1.92-7.155-5.449-8.331 c-15.629-5.21-21.336-21.258-21.378-21.378c-0.77-2.307-2.543-4.14-4.824-4.984c-2.282-0.844-4.821-0.606-6.906,0.645 c-31.094,18.658-101.688,25.275-102.397,25.339c-4.409,0.402-7.659,4.301-7.258,8.709l5.346,58.802 c1.034,11.368,7.607,21.464,17.587,27.009l10.096,5.608v5.185c-15.894-2.724-30.468-7.056-42.325-12.597 C265.955,280.993,265.502,280.314,265.509,279.593z M450.967,350.597H249.158c-1.237,0-2.244-1.006-2.244-2.244 c0-0.909,0.542-1.721,1.381-2.07l59.711-24.855c10.494,12.425,25.783,19.549,42.057,19.549c16.275,0,31.56-7.123,42.056-19.549 l59.711,24.854c0.839,0.35,1.381,1.162,1.381,2.072C453.211,349.591,452.205,350.597,450.967,350.597z"></path> <path d="M469.779,68.409H42.221C18.941,68.409,0,87.35,0,110.63V401.37c0,23.28,18.941,42.221,42.221,42.221h427.557 c23.28,0,42.221-18.941,42.221-42.221V110.63C512,87.35,493.059,68.409,469.779,68.409z M495.967,401.37 c0,14.44-11.748,26.188-26.188,26.188H42.221c-14.44,0-26.188-11.748-26.188-26.188V110.63c0-14.44,11.748-26.188,26.188-26.188 h427.557c14.44,0,26.188,11.748,26.188,26.188V401.37z"></path> <path d="M461.228,384.802H142.982c-3.354-9.93-12.752-17.102-23.8-17.102s-20.446,7.172-23.8,17.102H50.772 c-4.427,0-8.017,3.589-8.017,8.017c0,4.427,3.589,8.017,8.017,8.017h44.609c3.354,9.93,12.752,17.102,23.8,17.102 s20.446-7.172,23.8-17.102h318.246c4.427,0,8.017-3.589,8.017-8.017C469.244,388.391,465.655,384.802,461.228,384.802z M119.182,401.904c-5.001,0-9.07-4.062-9.085-9.06c0-0.009,0.001-0.017,0.001-0.026s-0.001-0.017-0.001-0.026 c0.014-4.998,4.083-9.06,9.085-9.06c5.01,0,9.086,4.076,9.086,9.086S124.192,401.904,119.182,401.904z"></path> <path d="M98.572,237.657c2.569,1.804,4.041,4.335,4.041,6.946v2.848c0,9.136,7.432,16.568,16.568,16.568h0.534v0.534 c0,4.427,3.589,8.017,8.017,8.017c4.427,0,8.017-3.589,8.017-8.017v-0.536h0.534c9.136,0,16.568-7.432,16.568-16.568v-2.893 c0-2.607,1.366-5.047,3.749-6.696c13.716-9.491,21.905-25.086,21.905-41.718c0-15.357-6.841-29.724-18.77-39.418 c-11.927-9.694-27.55-13.418-42.862-10.222c-19.948,4.167-35.68,20.526-39.147,40.709C74.343,206.92,82.329,226.248,98.572,237.657z M93.529,189.926c2.326-13.539,13.274-24.941,26.623-27.728c2.576-0.538,5.137-0.804,7.658-0.804c7.968,0,15.521,2.657,21.814,7.772 c8.165,6.637,12.848,16.468,12.848,26.976c0,11.37-5.605,22.036-14.994,28.533c-6.674,4.618-10.659,12.05-10.659,19.88v2.893 c0,0.295-0.239,0.534-0.534,0.534h-17.102c-0.295,0-0.534-0.239-0.534-0.534v-2.848c0-7.906-3.958-15.219-10.86-20.066 C96.668,216.726,91.204,203.464,93.529,189.926z"></path> <path d="M76.426,306.772H179.04c18.566,0,33.67-15.105,33.67-33.67v-0.534h17.637c2.888,0,5.553-1.554,6.976-4.067 c1.424-2.514,1.384-5.598-0.102-8.074l-24.511-40.851v-74.74c0-18.566-15.105-33.67-33.67-33.67H76.426 c-18.566,0-33.67,15.105-33.67,33.67v128.267C42.756,291.668,57.86,306.772,76.426,306.772z M58.789,144.835 c0-9.725,7.912-17.637,17.637-17.637H179.04c9.725,0,17.637,7.912,17.637,17.637v76.96c0,1.453,0.395,2.879,1.143,4.125 l18.368,30.614h-11.494c-4.427,0-8.017,3.589-8.017,8.017v8.551c0,9.725-7.912,17.637-17.637,17.637H76.426 c-9.725,0-17.637-7.912-17.637-17.637V144.835z"></path> <path d="M127.733,204.159c4.427,0,8.017-3.589,8.017-8.017V179.04c0-4.427-3.589-8.017-8.017-8.017 c-4.427,0-8.017,3.589-8.017,8.017v17.102C119.716,200.569,123.305,204.159,127.733,204.159z"></path> <path d="M127.818,213.779h-0.086c-4.427,0-7.974,3.589-7.974,8.017s3.632,8.017,8.059,8.017c4.427,0,8.017-3.589,8.017-8.017 S132.246,213.779,127.818,213.779z"></path> </g></svg> 
+					<h5 class="card-title">Online Image to Video Converter</h5>
+					<p class="card-text small text-muted">Create videos from your photos, add sounds and effects. Download the generated video ready to post on YouTube or social media.</p>
+					<a href="https://online-tools.muisca.co/en/tools/generators/images-to-video" class="btn btn-primary btn-sm">Probar</a>
+				</div>
+			</div>
+		</div><script type='application/ld+json'>[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Online Image to Video Converter",
+        "url": "https://online-tools.muisca.co/en/tools/generators/images-to-video",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "description": "Create videos from your photos, add sounds and effects. Download the generated video ready to post on YouTube or social media.",
+        "image": "https://online-tools.muisca.co/images/generadores-imagenes-a-video.png",
+        "creator": {
+            "@type": "Organization",
+            "name": "Online Tools - Muisca",
+            "url": "https://online-tools.muisca.co"
+        }
+    },
+    {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is it free to create videos with this tool?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! Our app is 100% free, with no limits, no premium plans, and no registration required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to register to use the app?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. We never ask for your email, password, or personal information. Just log in and create your videos instantly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are my photos or videos uploaded to their servers?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Never! Everything is processed directly in your browser. Your files never leave your device."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work on mobile or tablet?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it's fully compatible with mobile phones, tablets, and computers. Designed to work on any modern device."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What image formats can I use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can use JPG, PNG, GIF, and WebP. Any image your browser can display, the app can use."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use my own videos as frames?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can include video clips (MP4, WebM) as part of your frames."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I add text to my videos?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sure! You can overlay text on each frame using any Google Fonts."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I customize the text and background color?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the text, outline (line), and background (solid or gradient) color are fully customizable."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What resolutions does the app support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It supports two standard formats: horizontal 16:9 (1280×720) and vertical 9:16 (720×1280), ideal for YouTube, Instagram, TikTok, and more."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How fast does the video render?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The video is generated at 30 frames per second (30 fps), ensuring smooth and professional playback."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I choose how long each frame is?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can set the duration of each frame to the second or fraction of a second you want."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it have animated transitions?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, each frame can have animated in and out transitions (fade, slide, zoom, etc.)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I add special effects?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Of course! We offer effects like falling hearts, confetti, bubbles, star showers, and even an animated \"like\" invitation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I add music to my video?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can upload an audio file (MP3, WAV, etc.) that will play throughout the video."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use the audio from an uploaded video as a frame?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, if you include a video clip with sound, its audio will be mixed into the overall project audio."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is additional software required?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Everything works in your browser: Chrome, Firefox, Safari, Edge, etc. You don't need to install anything."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I download the video in high quality?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the video is downloaded in MP4 with HD resolution (720p) and optimal quality for social networks."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is there a limit on the length of the video?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There is no fixed limit, but for browser performance, it is recommended not to exceed 2-3 minutes to avoid slowness."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do you make money if it's free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "If the app has enough traffic, we show Google AdSense ads. But we never force you to watch them or limit features because of it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use the app offline?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Not entirely. You need an internet connection to load fonts from Google Fonts and libraries, but once loaded, much of the processing is offline."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it compatible with iOS and Android?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it works in Safari (iOS) and Chrome/Edge (Android), although some advanced features may vary slightly due to system limitations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I preview my video before downloading?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! The app includes a built-in player so you can watch your video in real time before exporting."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I easily reorder frames?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, drag and drop to change the frame order at any time."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I duplicate or delete frames?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sure, each frame has buttons to duplicate, edit, or delete it instantly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are my projects saved automatically?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, for privacy reasons, we don't save anything on the servers. But you can export your project as a JSON file and re-import it later."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use emojis in the text?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! Emojis work perfectly in the text within frames."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the app respect my privacy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. We don't use tracking cookies, we don't collect any data, and we don't share anything with third parties."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use the app in incognito mode?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it works perfectly in private or incognito windows without any problems."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are there tutorials or user guides?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, within the app you will find interactive tips and a \"Help\" button with step-by-step examples."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I create videos for YouTube, TikTok or Instagram?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Exactly! The resolutions and formats are optimized for all those platforms."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the downloaded video have a watermark?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Your videos download clean, with no logos, branding, or forced credits."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use gradient backgrounds instead of flat colors?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can choose between linear or radial gradients with customizable colors."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I adjust the position of the text in the frame?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can move the text freely or align it (left, center, right, top, bottom)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I change the font per frame?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sure! Each frame can use a different font from Google Fonts."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens if I accidentally close the tab?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Unfortunately, you'll lose any unsaved progress. That's why we recommend exporting your project as JSON periodically."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use this app to create Instagram Stories?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Great for that! Use the 9:16 portrait mode and add eye-catching effects to make your Stories stand out."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the overall audio blend well with the audio in your videos?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the app automatically adjusts levels to avoid distortion, though you can manually adjust the volume in future updates."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the app safe?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it doesn't contain malware, doesn't ask for unnecessary permissions, and all code runs locally."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it on an older computer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It depends on the browser, but it generally works well on computers from the last 5-7 years."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is there a size limit on my uploads?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your browser imposes limits (usually 500 MB–1 GB per file), but we don't."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I create videos with just text and colors?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! You don't need images or videos. You can make a full video with colored/gradient backgrounds and animated text."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are special effects performance-intensive?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Some complex effects may slow down the preview a bit on older devices, but the final video always renders smoothly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I share my video directly from the app?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Not directly, but you can download and share it immediately from your device."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the app updated with new features?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! We listen to users and regularly add improvements and new effects."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use this tool for commercial purposes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely! Your videos are 100% yours. You can use them in business, social media, advertising, etc."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which browsers are supported?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Chrome, Firefox, Edge, Safari (recent version), and any modern Chromium-based browser."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I create videos with automatic subtitles?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Not yet, but you can write the text yourself on each frame as if they were subtitles."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the app work on Linux?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, if you use a supported browser, it will work perfectly on Ubuntu, Fedora, etc."
+                }
+            }
+        ]
+    }
+]</script>
+		<div class="col-md-4 mb-4">
+			<div class="card h-100 shadow-sm">
+				<div class="card-body text-center">
+					<svg width="86px" height="86px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12.92 2.25984L19.43 5.76984C20.19 6.17984 20.19 7.34984 19.43 7.75984L12.92 11.2698C12.34 11.5798 11.66 11.5798 11.08 11.2698L4.57 7.75984C3.81 7.34984 3.81 6.17984 4.57 5.76984L11.08 2.25984C11.66 1.94984 12.34 1.94984 12.92 2.25984Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M3.61 10.1302L9.66 13.1602C10.41 13.5402 10.89 14.3102 10.89 15.1502V20.8702C10.89 21.7002 10.02 22.2302 9.28 21.8602L3.23 18.8302C2.48 18.4502 2 17.6802 2 16.8402V11.1202C2 10.2902 2.87 9.76017 3.61 10.1302Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M20.3894 10.1302L14.3394 13.1602C13.5894 13.5402 13.1094 14.3102 13.1094 15.1502V20.8702C13.1094 21.7002 13.9794 22.2302 14.7194 21.8602L20.7694 18.8302C21.5194 18.4502 21.9994 17.6802 21.9994 16.8402V11.1202C21.9994 10.2902 21.1294 9.76017 20.3894 10.1302Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg> 
+					<h5 class="card-title">Online 3D File Viewer (STL, OBJ, PLY, GLTF, GLB)</h5>
+					<p class="card-text small text-muted">View 3D files of different formats, rotate, zoom and take screenshots</p>
+					<a href="https://online-tools.muisca.co/en/tools/viewers/3d-viewer-stl-obj-ply-gltf-glb" class="btn btn-primary btn-sm">Probar</a>
+				</div>
+			</div>
+		</div><script type='application/ld+json'>[
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Online 3D File Viewer (STL, OBJ, PLY, GLTF, GLB)",
+        "url": "https://online-tools.muisca.co/en/tools/viewers/3d-viewer-stl-obj-ply-gltf-glb",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "description": "View 3D files of different formats, rotate, zoom and take screenshots",
+        "image": "https://online-tools.muisca.co/images/online-tools.jpg",
+        "creator": {
+            "@type": "Organization",
+            "name": "Online Tools - Muisca",
+            "url": "https://online-tools.muisca.co"
+        }
+    },
+    {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is the Online 3D Viewer free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our tool is completely free and does not require registration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to install any software to use it?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, it works directly in your browser without installations or plugins."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use it from a mobile or tablet?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with mobile devices, tablets, and computers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What 3D model formats does it support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It supports STL, OBJ, PLY, GLTF, and GLB."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does the 3D viewer work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Just upload your 3D file and you can view it instantly, with interactive controls to rotate, zoom in, zoom out, and adjust the view."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I capture images of my model?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can capture any angle of your model and download the image instantly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are my files stored?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, all information is processed locally; we do not save any files on our servers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it secure?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, since it is processed in the browser, your files remain private."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work in any modern browser?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it is compatible with Chrome, Firefox, Edge, Safari, and mobile browsers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for designers, engineers, or architects?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it allows precise exploration of 3D models, adjusting visualization, and generating reference images."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I hide or show the grid and change the background color?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the tool allows you to customize your model’s visualization."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it easy to use for beginners?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, its interface is intuitive and user-friendly, suitable for any skill level."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I process multiple models consecutively?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can open and view as many models as you need without limits."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is any history of my models saved?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, all files are processed locally and nothing is stored on any server."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for students and 3D enthusiasts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it allows experimenting with models, learning about 3D visualization, and exploring different file formats."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work with large or complex 3D models?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the viewer supports complex and large 3D files, maintaining correct and smooth visualization."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it useful for professional projects?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, it facilitates review, exploration, and image capture of 3D models in work or academic environments."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need a constant Internet connection?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, a connection to the browser is required, but no data is sent to external servers; everything is processed locally."
+                }
+            }
+        ]
+    }
+]</script></div></div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+		<p class="mb-0">&copy; 2025 online-tools.muisca.co</p>
+	</footer>
+
+	<!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">var siteStats= "tools.muisca";</script>
+    <script src="https://muisca.co/plugins/statsPoint.js"></script>
+    <!--script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3367290887105033" crossorigin="anonymous"></script-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TK27MQ9FZK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-TK27MQ9FZK');
+    </script>
+</body>
+</html>
